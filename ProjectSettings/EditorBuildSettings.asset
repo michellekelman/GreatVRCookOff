@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/assignment01.unity
+    guid: a5f9bc49b170a614eb0bf3fdadca336d
+  - enabled: 0
+    path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.19.0/Hello Cardboard/Scenes/HelloCardboard.unity
+    guid: 145a2a45d7bc746b19cb68410368bf96
+  - enabled: 0
+    path: Assets/assignment02.unity
+    guid: 0bbfd4a709232ea459a0b8ba6a1652bf
+  - enabled: 0
+    path: Assets/MiLabCardboardExtension/Scenes/Map Bluetooth Key.unity
+    guid: 1eb807ac90408844da5fd17e087fea1e
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0bbca5b0980d0a141b7cf9f44d8c9f08, type: 2}
