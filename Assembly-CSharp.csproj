@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\Highlight.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\XRCardboard\XRCardboardReticle.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\XRCardboard\XRCardboardController.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\UnityFloatEvent.cs" />
@@ -91,6 +92,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\ATLAS\Customizable Kitchen Pack\KitchenPackDocs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
