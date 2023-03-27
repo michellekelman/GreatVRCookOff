@@ -68,6 +68,7 @@
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\CameraPointer.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\VrModeController.cs" />
+    <Compile Include="Assets\OpenDoor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

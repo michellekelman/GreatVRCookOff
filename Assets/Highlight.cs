@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Highlight : MonoBehaviour
+public class Highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject objectName;
     // Start is called before the first frame update
@@ -18,14 +19,14 @@ public class Highlight : MonoBehaviour
         
     }
 
-    public void PointerEnter() 
+    public void OnPointerEnter(PointerEventData eventData) 
     {
         var outline = objectName.GetComponent<Outline>();
         outline.enabled = true;
         outline.OutlineWidth = 10f;
     }
 
-    public void PointerExit() 
+    public void OnPointerExit(PointerEventData eventData) 
     {
         var outline = objectName.GetComponent<Outline>();
         outline.enabled = false;
