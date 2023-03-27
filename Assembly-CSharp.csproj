@@ -54,7 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\Highlight.cs" />
+    <Compile Include="Assets\SCRIPTS\Highlight.cs" />
+    <Compile Include="Assets\SCRIPTS\OpenDoor.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\XRCardboard\XRCardboardReticle.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\XRCardboard\XRCardboardController.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\UnityFloatEvent.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\CameraPointer.cs" />
     <Compile Include="Assets\Samples\Google Cardboard XR Plugin for Unity\1.19.0\Hello Cardboard\Scripts\VrModeController.cs" />
-    <Compile Include="Assets\OpenDoor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -76,7 +76,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\MiLabCardboardExtension\README.txt" />
-    <None Include="Assets\Kitchen Asset\README.txt" />
+    <None Include="Assets\ASSETS\Kitchen Asset\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
@@ -93,7 +93,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\ATLAS\Customizable Kitchen Pack\KitchenPackDocs.txt" />
+    <None Include="Assets\ASSETS\ATLAS\Customizable Kitchen Pack\KitchenPackDocs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />

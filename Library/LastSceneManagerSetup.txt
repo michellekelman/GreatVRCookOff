@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/KitchenScene.unity
+- path: Assets/SCRIPTS/KitchenScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
