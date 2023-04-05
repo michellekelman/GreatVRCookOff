@@ -42,7 +42,7 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
-        if (Input.GetButton("js10") && (recipe.activeSelf || instructions.activeSelf))
+        if (Input.GetButtonDown("js7") && (recipe.activeSelf || instructions.activeSelf))
         {
             ResumeGame();
         }
@@ -55,6 +55,8 @@ public class SettingsMenuBehavior : MonoBehaviour
             character.GetComponent<CharacterMovement>().speed = 0;
             reticle.SetActive(false);
             menu.SetActive(true);
+            recipe.SetActive(false);
+            instructions.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(recipeButton);
     }
