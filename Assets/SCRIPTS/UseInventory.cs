@@ -5,23 +5,28 @@ using UnityEngine;
 public class UseInventory : MonoBehaviour
 {
     public GameObject player;
+    string X;
     // Start is called before the first frame update
     void Start()
     {
-        
+        X = "js1";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown(X) && 
-            player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
-            (player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Bread") ||
-            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Cheese") ||
-            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Butter")) ) 
+        GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
+
+        if(Input.GetButtonDown(X) && activeObj != null) 
         { 
-            GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
-            player.GetComponent<InventoryMenu>().addObj(player.GetComponent<ActiveGameObject>().getActiveObject());
+            Debug.Log("Here" + activeObj.name);
+            if( activeObj.name.Contains("Bread") ||
+              activeObj.name.Contains("Cheese") ||
+                activeObj.name.Contains("Butter")) {
+                // GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
+                player.GetComponent<InventoryMenu>().addObj(activeObj.name, activeObj);
+                activeObj.SetActive(false);
+            }
         }
     }
 
