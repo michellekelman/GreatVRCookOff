@@ -14,12 +14,15 @@ public class StartMenuBehavior : MonoBehaviour
     public GameObject instructions;
     public GameObject instructionsButton;
     public GameObject eventSystem;
+    public GameObject playerMenu;
     private bool first = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         character.GetComponent<CharacterMovement>().speed = 0;
         reticle.SetActive(false);
+        playerMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class StartMenuBehavior : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         character.GetComponent<CharacterMovement>().speed = 5;
         reticle.SetActive(true);
+        playerMenu.SetActive(true);
     }
 
     public void ShowInstructions()

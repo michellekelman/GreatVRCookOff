@@ -18,6 +18,7 @@ public class SettingsMenuBehavior : MonoBehaviour
     public GameObject instructionsButton;
     public GameObject exitButton;
     public GameObject eventSystem;
+    public GameObject playerMenu;
     void Start()
     {
         menu.SetActive(false);
@@ -26,7 +27,7 @@ public class SettingsMenuBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("js7") && !menu.activeSelf)
+        if (Input.GetButtonDown("js7") && !menu.activeSelf )
         {
             ActivateMenu();
         }
@@ -42,7 +43,7 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
-        if (Input.GetButtonDown("js7") && (recipe.activeSelf || instructions.activeSelf))
+        if (Input.GetButtonDown("js10") && (recipe.activeSelf || instructions.activeSelf))
         {
             ResumeGame();
         }
@@ -50,6 +51,7 @@ public class SettingsMenuBehavior : MonoBehaviour
 
     public void ActivateMenu()
     {
+            playerMenu.SetActive(false);
             eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
             eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
             character.GetComponent<CharacterMovement>().speed = 0;
@@ -83,5 +85,6 @@ public class SettingsMenuBehavior : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         character.GetComponent<CharacterMovement>().speed = 5;
         reticle.SetActive(true);
+        playerMenu.SetActive(true);
     }
 }
