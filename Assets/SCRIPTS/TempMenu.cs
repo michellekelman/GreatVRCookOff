@@ -7,7 +7,6 @@ public class TempMenu : MonoBehaviour
     public GameObject pointerDial;
     public GameObject player;
     public GameObject tempMenu;
-    GameObject stove;
     bool inputProcessed;
     int pointerAngle; 
     bool tempOn;
@@ -25,7 +24,6 @@ public class TempMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stove = player.GetComponent<ActiveGameObject>().getActiveObject();
         if(Input.GetButtonDown(X)) {
             Debug.Log("X is pressed!");
         }
