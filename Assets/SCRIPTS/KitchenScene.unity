@@ -907,6 +907,9 @@ GameObject:
   - component: {fileID: 187781823}
   - component: {fileID: 187781822}
   - component: {fileID: 187781825}
+  - component: {fileID: 187781826}
+  - component: {fileID: 187781828}
+  - component: {fileID: 187781827}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -979,6 +982,46 @@ MonoBehaviour:
   player_num: {fileID: 527607634}
   timer: {fileID: 2138746877}
   instruction: {fileID: 1868621367}
+--- !u!114 &187781826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187781821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c040e1fca0f88e4382aa36f950b3c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventMenu: {fileID: 589848122}
+--- !u!114 &187781827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187781821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92809323302670a4b83b08d0c96bae39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &187781828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187781821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8afc6ae7fb3aaf340916ba3ece7553fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerDial: {fileID: 129812970}
+  player: {fileID: 187781821}
+  tempMenu: {fileID: 605211160}
 --- !u!1 &198807233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7287137020755404948, guid: 186741bf17cbb0e4fa3ef06daa1f190f, type: 3}
@@ -3690,7 +3733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &605211161
 MonoBehaviour:
   m_ObjectHideFlags: 0

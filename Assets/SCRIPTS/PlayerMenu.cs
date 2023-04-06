@@ -49,7 +49,6 @@ public class PlayerMenu : MonoBehaviour
         currInstruction += 1;
 
         // TODO : Last instruction and End game scenario 
-
         instruction.GetComponent<TMP_Text>().text = instructionSet[currInstruction];
     }
 }

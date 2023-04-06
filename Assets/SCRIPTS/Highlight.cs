@@ -24,6 +24,7 @@ public class Highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         var outline = objectName.GetComponent<Outline>();
         outline.enabled = true;
         outline.OutlineWidth = 10f;
+        GameObject.Find("Character").GetComponent<ActiveGameObject>().setActiveObject(objectName);
     }
 
     public void OnPointerExit(PointerEventData eventData) 
