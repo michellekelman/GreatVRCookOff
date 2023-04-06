@@ -11,6 +11,7 @@ public class TempMenu : MonoBehaviour
     int pointerAngle; 
     bool tempOn;
     string X;
+
     // Start is called before the first frame update
     void Start()
     {
