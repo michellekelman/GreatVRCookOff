@@ -13,9 +13,10 @@ public class RecipeStepsBehavior : MonoBehaviour
     [HideInInspector] public bool step5Complete;
     [HideInInspector] public bool step6Complete;
     [HideInInspector] public bool step7Complete;
-    [HideInInspector] public bool step8Complete;
+    public bool step8Complete;
 
     public GameObject playerRecipeInstruction;
+    bool dummy = false;
     void Start()
     {
         step1Complete = false;
@@ -30,6 +31,73 @@ public class RecipeStepsBehavior : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        CheckStepChange();
+        ChangeUserMessage();
+    }
+
+    void CheckStepChange()
+    {
+        if (step1Complete)
+        {
+            if (step2Complete)
+            {
+                if (step3Complete)
+                {
+                    if (step4Complete)
+                    {
+                        if (step5Complete)
+                        {
+                            if (step6Complete)
+                            {
+                                if (step7Complete)
+                                {
+                                    if (step8Complete)
+                                    {
+                                         //END MENU BEHAVIOR???????
+                                    }
+                                    else if (dummy)
+                                    {
+                                        step8Complete = true;
+                                    }
+                                }
+                                else if (dummy)
+                                {
+                                    step7Complete = true;
+                                }
+                            }
+                            else if (dummy)
+                            {
+                                step6Complete = true;
+                            }
+                        }
+                        else if (dummy)
+                        {
+                            step5Complete = true;
+                        }
+                    }
+                    else if (dummy)
+                    {
+                        step4Complete = true;
+                    }
+                }
+                else if (dummy)
+                {
+                    step3Complete = true;
+                }
+            }
+            else if (dummy)
+            {
+                step2Complete = true;
+            }
+        }
+        else if (dummy)
+        {
+            step1Complete = true;
+        }
+    }
+
+    void ChangeUserMessage()
     {
         if (step1Complete)
         {

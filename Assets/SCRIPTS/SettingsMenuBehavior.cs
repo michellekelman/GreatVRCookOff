@@ -27,7 +27,7 @@ public class SettingsMenuBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("js7") && !menu.activeSelf )
+        if (Input.GetButtonDown("js7") && !menu.activeSelf)
         {
             ActivateMenu();
         }

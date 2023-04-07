@@ -28,7 +28,7 @@ public class TempMenu : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown(X)) {
-            Debug.Log("X is pressed!");
+            // Debug.Log("X is pressed!");
         }
         //pressing X to interact with stove
         if(Input.GetButtonDown(X) && 
