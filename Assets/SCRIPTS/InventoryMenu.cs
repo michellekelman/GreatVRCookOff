@@ -8,11 +8,12 @@ public class InventoryMenu : MonoBehaviour
 {   
     public GameObject inventMenu;
     private Dictionary<string, GameObject> inventory = new Dictionary<string, GameObject>();
-    private int inventoryCount = 0;
+    private int inventoryCount;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventoryCount = 0;
+        loadInventory();
     }
 
     // Update is called once per frame
@@ -77,10 +78,10 @@ public class InventoryMenu : MonoBehaviour
             btn[j].image.sprite = empty;
         }
 
-        for(int j=0; j<3; j++){
+        for(int j=0; j<inventoryCount; j++) {
             Sprite mySprite = Resources.Load<Sprite>(keys.ElementAt(j));
             Sprite empty = Resources.Load<Sprite>("null");
             btn[j].image.sprite = (mySprite!=null)? mySprite: empty;
-        }
+        }    
     }
 }
