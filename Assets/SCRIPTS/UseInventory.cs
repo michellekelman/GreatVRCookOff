@@ -51,7 +51,6 @@ public class UseInventory : MonoBehaviour
                 activeObj.GetComponent<Highlight>().enabled = false;
                 player.GetComponent<InventoryMenu>().enabled = false;
                 player.GetComponent<RecipeStepsBehavior>().setStep1True();
-                Debug.Log("asdhfkljasjdflkajsdlkfjasdlkf");
             }
         }
         

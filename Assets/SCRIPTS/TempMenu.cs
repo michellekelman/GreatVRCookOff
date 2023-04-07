@@ -9,6 +9,7 @@ public class TempMenu : MonoBehaviour
     public GameObject tempMenu;
     bool inputProcessed;
     int pointerAngle; 
+    int currAngle;
     bool tempOn;
     private string X;
     private string[] bMap;
@@ -21,6 +22,7 @@ public class TempMenu : MonoBehaviour
         inputProcessed = false;
         pointerAngle = 45;
         tempOn = false;
+        currAngle = 0;
         
     }
 
@@ -32,6 +34,7 @@ public class TempMenu : MonoBehaviour
         }
         //pressing X to interact with stove
         if(Input.GetButtonDown(X) && 
+            !player.GetComponent<Holding>().isHolding &&
             player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
             player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove")) 
         {
@@ -43,6 +46,10 @@ public class TempMenu : MonoBehaviour
             if(!tempOn) // if false => closing menu
             {
                 // get temp reading here.
+                if(currAngle==180){
+                    Debug.Log("Oven set to med");
+                }
+
             }
         }
 
@@ -64,15 +71,26 @@ public class TempMenu : MonoBehaviour
             if(inputV == 0){
                 inputProcessed = false;
             }
+
+            Debug.Log("Curr Angle is: "+currAngle);
         }
     }
 
     void rotateDialAntiClockwise() {
         pointerDial.transform.Rotate(0, 0, pointerAngle);
+        currAngle += pointerAngle;
+        if(currAngle%360==0){
+            currAngle=0;
+        }
     }
 
     void rotateDialClockwise() {
         pointerDial.transform.Rotate(0, 0, -pointerAngle);
+        currAngle -= pointerAngle;
+         if(currAngle%360==0){
+            currAngle=0;
+        }
+
     }
 
 
