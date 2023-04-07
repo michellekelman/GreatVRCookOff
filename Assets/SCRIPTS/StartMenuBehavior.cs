@@ -16,6 +16,8 @@ public class StartMenuBehavior : MonoBehaviour
     public GameObject eventSystem;
     public GameObject playerMenu;
     private bool first = false;
+    string X;
+    string Y;
     
     // Start is called before the first frame update
     void Start()
@@ -23,20 +25,22 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 0;
         reticle.SetActive(false);
         playerMenu.SetActive(false);
+        X = "js1";
+        Y = "js0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("js11") && EventSystem.current.currentSelectedGameObject == playButton)
+        if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
         {
             PlayGame();
         }
-        if (Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == instructionsButton) 
+        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
         {
             ShowInstructions();
         }
-        if (Input.GetButton("js10") && instructions.activeSelf)
+        if (Input.GetButton(Y) && instructions.activeSelf)
         {
             PlayGame();
         }
