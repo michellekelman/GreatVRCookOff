@@ -14,12 +14,14 @@ public class PlayerMenu : MonoBehaviour
     string[] instructionSet;
     int currInstruction;
 
+    public GameObject menuController;
+
     // Start is called before the first frame update
     void Start()
     {
-        seconds = (int)Time.time;
+        seconds = (int)Time.timeSinceLevelLoad;
         instructionSet = new string[] { 
-            "1. Collect Ingredients from pantry",
+            "1. Collect ingredients from pantry",
             "2. Heat Pan on Medium",
             "3. Spread butter on each slide of bread",
             "4. Put one slice of bread (butter down) in the pan",
@@ -34,9 +36,11 @@ public class PlayerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        seconds = (int)Time.time;
-        timer.GetComponent<TMP_Text>().text = getTime(seconds);
-
+        if (!menuController.GetComponent<RecipeStepsBehavior>().step8Complete)
+        {
+            seconds = (int)Time.timeSinceLevelLoad;
+            timer.GetComponent<TMP_Text>().text = getTime(seconds);
+        }
     }
 
     string getTime(int seconds) {
