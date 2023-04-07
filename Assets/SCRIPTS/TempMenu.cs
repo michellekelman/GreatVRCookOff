@@ -16,7 +16,7 @@ public class TempMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        X = "js1";
+        X = "js11";
         inputProcessed = false;
         pointerAngle = 45;
         tempOn = false;
