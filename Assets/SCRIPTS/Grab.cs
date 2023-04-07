@@ -12,12 +12,15 @@ public class Grab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool reticlein;
     private string B;
     private string A;
+    private string[] bMap;
+
     // Start is called before the first frame update
     void Start()
     {
         reticlein = false;
-        B = "js10";
-        A = "js11";
+        bMap = player.GetComponent<ButtonMapping>().getMap();
+        B = bMap[1];
+        A = bMap[0];
     }
 
     // Update is called once per frame

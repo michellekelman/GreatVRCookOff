@@ -6,10 +6,13 @@ public class UseInventory : MonoBehaviour
 {
     public GameObject player;
     string X;
+    string[] bMap;
+    
     // Start is called before the first frame update
     void Start()
     {
-        X = "js1";
+        bMap = player.GetComponent<ButtonMapping>().getMap();
+        X = bMap[2];
     }
 
     // Update is called once per frame

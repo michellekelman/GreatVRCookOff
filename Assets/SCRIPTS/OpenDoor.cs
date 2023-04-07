@@ -6,17 +6,21 @@ using UnityEngine.EventSystems;
 public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject objectName;
+    public GameObject player;
     bool hover;
     bool open;
     string keyX;
+    private string[] bMap;
+
     // Start is called before the first frame update
     void Start()
     {
+        bMap = player.GetComponent<ButtonMapping>().getMap();
         hover = false;
         open = false;
 
     // <- Key Mappings -> 
-        keyX="js0";
+        keyX=bMap[2];
     }
 
     // Update is called once per frame

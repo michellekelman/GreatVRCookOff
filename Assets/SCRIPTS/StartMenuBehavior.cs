@@ -18,6 +18,7 @@ public class StartMenuBehavior : MonoBehaviour
     private bool first = false;
     string X;
     string Y;
+    private string[] bMap;
     
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,9 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 0;
         reticle.SetActive(false);
         playerMenu.SetActive(false);
-        X = "js1";
-        Y = "js0";
+        bMap = character.GetComponent<ButtonMapping>().getMap();
+        X = bMap[2];
+        Y = bMap[3];
     }
 
     // Update is called once per frame

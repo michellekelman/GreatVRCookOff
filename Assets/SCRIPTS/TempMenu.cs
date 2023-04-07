@@ -10,12 +10,14 @@ public class TempMenu : MonoBehaviour
     bool inputProcessed;
     int pointerAngle; 
     bool tempOn;
-    string X;
+    private string X;
+    private string[] bMap;
 
     // Start is called before the first frame update
     void Start()
     {
-        X = "js11";
+        bMap = player.GetComponent<ButtonMapping>().getMap();
+        X = bMap[2];
         inputProcessed = false;
         pointerAngle = 45;
         tempOn = false;

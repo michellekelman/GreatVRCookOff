@@ -8,10 +8,13 @@ public class AddToPlate : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public GameObject player;
     private bool reticlein;
     private string B;
+    private string[] bMap;
+
     // Start is called before the first frame update
     void Start()
     {
-        B = "js10";
+        bMap = player.GetComponent<ButtonMapping>().getMap();
+        B = bMap[1];
     }
 
     // Update is called once per frame
