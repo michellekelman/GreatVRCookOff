@@ -30,6 +30,7 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 player.GetComponent<Holding>().isHolding = false;
                 player.GetComponent<Holding>().heldObj = new GameObject();
                 stovePan.SetActive(true);
+                player.GetComponent<RecipeStepsBehavior>().setStep2True();
             }
             //Add temp menu stuff
         }        

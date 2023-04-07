@@ -24,8 +24,8 @@ public class AddToPlate : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             if(Input.GetButtonDown(B))
             {
-                Debug.Log("lakdjflkasdjfklasdjfkl;ajsdfkl;asj;dlkf");
-                // player.GetComponent<RecipeStepsBehavior>().setStep8True();
+                // Debug.Log("lakdjflkasdjfklasdjfkl;ajsdfkl;asj;dlkf");
+                player.GetComponent<RecipeStepsBehavior>().setStep8True();
             }
         }                    
     }
