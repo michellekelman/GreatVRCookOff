@@ -31,6 +31,7 @@ public class ButterBread : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 player.GetComponent<Holding>().heldObj.SetActive(false);
                 player.GetComponent<Holding>().heldObj = knife;
                 player.GetComponent<Holding>().heldObj.SetActive(true);
+                player.GetComponent<RecipeStepsBehavior>().incrementStep3();
             }
         }
     }

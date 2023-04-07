@@ -41,6 +41,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 rawSw.SetActive(true);
                 rawSw.transform.parent = GetComponent<Transform>();
                 rawSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
+                player.GetComponent<RecipeStepsBehavior>().setStep6True();
             }
         }
 
@@ -55,6 +56,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 breadSlice1.SetActive(true);
                 breadSlice1.transform.parent = GetComponent<Transform>();
                 breadSlice1.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * .125f + GetComponent<Transform>().right * .05f;
+                player.GetComponent<RecipeStepsBehavior>().setStep4True();
             }
         }
         
@@ -69,6 +71,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 breadSlice2.SetActive(true);
                 breadSlice2.transform.parent = GetComponent<Transform>();
                 breadSlice2.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * .125f + GetComponent<Transform>().right * .05f;
+                player.GetComponent<RecipeStepsBehavior>().setStep4True();
             }
         }
 
@@ -91,6 +94,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 halfSw.SetActive(true);
                 halfSw.transform.parent = GetComponent<Transform>();
                 halfSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
+                player.GetComponent<RecipeStepsBehavior>().setStep5True();
             }
         }
 
@@ -107,7 +111,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
         //if holding spatula and sandwich done cooking
-        if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && cookedSw.activeSelf) //Add check to see if the sandwich has been flipped and cooked first
+        else if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && cookedSw.activeSelf) //Add check to see if the sandwich has been flipped and cooked first
         {
             if(Input.GetButtonDown(B))
             {
@@ -120,8 +124,10 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 spatulaSw.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
                 spatulaSw.transform.Rotate(0, -45f, 45f, Space.Self);
                 spatulaSw.transform.position = spatulaSw.transform.position + Camera.main.transform.right * .25f;
+                player.GetComponent<RecipeStepsBehavior>().setStep7True();
             }
-        }                    
+        } 
+
     }
 
     public void OnPointerEnter(PointerEventData eventData) 

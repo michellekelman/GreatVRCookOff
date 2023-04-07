@@ -10,6 +10,7 @@ public class PlayerMenu : MonoBehaviour
     public GameObject player_num; 
     public GameObject timer; 
     public GameObject instruction; 
+    public GameObject character;
     int seconds; 
     string[] instructionSet;
     int currInstruction;
@@ -36,7 +37,7 @@ public class PlayerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!menuController.GetComponent<RecipeStepsBehavior>().step8Complete)
+        if (!character.GetComponent<RecipeStepsBehavior>().step8Complete)
         {
             seconds = (int)Time.timeSinceLevelLoad;
             timer.GetComponent<TMP_Text>().text = getTime(seconds);

@@ -19,31 +19,39 @@ public class SettingsMenuBehavior : MonoBehaviour
     public GameObject exitButton;
     public GameObject eventSystem;
     public GameObject playerMenu;
+    string X;
+    string Y;
+    string menuInputButton;
+    private string[] bMap;
     void Start()
     {
         menu.SetActive(false);
+        bMap = character.GetComponent<ButtonMapping>().getMap();
+        X = bMap[2];
+        Y = bMap[3];
+        menuInputButton = bMap[4];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("js7") && !menu.activeSelf)
+        if (Input.GetButtonDown(menuInputButton) && !menu.activeSelf)
         {
             ActivateMenu();
         }
-        if (Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == recipeButton)
+        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == recipeButton)
         {
             ShowRecipe();
         }
-        if (Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == instructionsButton) 
+        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
         {
             ShowInstructions();
         }
-        if (Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == exitButton) 
+        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == exitButton) 
         {
             ResumeGame();
         }
-        if (Input.GetButtonDown("js10") && (recipe.activeSelf || instructions.activeSelf))
+        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf))
         {
             ResumeGame();
         }
