@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17292506, g: 0.21610898, b: 0.29807693, a: 1}
+  m_IndirectSpecularColor: {r: 0.17292485, g: 0.21610856, b: 0.29807636, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -947,6 +947,7 @@ GameObject:
   - component: {fileID: 187781829}
   - component: {fileID: 187781830}
   - component: {fileID: 187781831}
+  - component: {fileID: 187781832}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1019,6 +1020,8 @@ MonoBehaviour:
   player_num: {fileID: 527607634}
   timer: {fileID: 2138746877}
   instruction: {fileID: 1868621367}
+  character: {fileID: 187781821}
+  menuController: {fileID: 1867138616}
 --- !u!114 &187781826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,13 +1104,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: 
-  B: 
-  X: 
-  Y: 
-  menu: 
+  A: js10
+  B: js7
+  X: js11
+  Y: js10
+  menu: js6
   OK: 
   bMap: []
+--- !u!114 &187781832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187781821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217218d06f0794b509525f939088fbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step1Complete: 0
+  step2Complete: 0
+  step3Complete: 0
+  step4Complete: 0
+  step5Complete: 0
+  step6Complete: 0
+  step7Complete: 0
+  step8Complete: 0
+  playerRecipeInstruction: {fileID: 1868621367}
 --- !u!1 &198807233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7287137020755404948, guid: 186741bf17cbb0e4fa3ef06daa1f190f, type: 3}
@@ -10784,6 +10808,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6def73f8311645b47a2d3ae4d6afb91f, type: 3}
+--- !u!65 &1680974759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659053825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05, z: 0.05}
+  m_Center: {x: 0, y: 0, z: 0.015352576}
 --- !u!1 &1690711807
 GameObject:
   m_ObjectHideFlags: 0
@@ -11891,7 +11928,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867138616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 217218d06f0794b509525f939088fbc9, type: 3}
   m_Name: 

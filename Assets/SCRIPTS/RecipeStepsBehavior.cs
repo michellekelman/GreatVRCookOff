@@ -13,7 +13,7 @@ public class RecipeStepsBehavior : MonoBehaviour
     [HideInInspector] public bool step5Complete;
     [HideInInspector] public bool step6Complete;
     [HideInInspector] public bool step7Complete;
-    public bool step8Complete;
+    [HideInInspector] public bool step8Complete;
 
     public GameObject playerRecipeInstruction;
     bool dummy = false;

@@ -19,7 +19,7 @@ public class ButtonMapping : MonoBehaviour
         B = "js7";
         X = "js11"; 
         Y = "js10"; 
-        menu = "js6"; 
+        menu = "js6";
         bMap = new string[] {A, B, X, Y, menu};
     }
 
