@@ -929,6 +929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 187781821}
+  spatula: {fileID: 1028753114}
+  cookedSw: {fileID: 864278841}
 --- !u!1 &187781821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,7 +3912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4219352889690714, guid: 12350bfc702bef44499bfd46c8dbb426, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4219352889690714, guid: 12350bfc702bef44499bfd46c8dbb426, type: 3}
       propertyPath: m_LocalScale.x
@@ -11268,7 +11270,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3958482300002050842, guid: ccbf8104e0edf9c4ca6940a7c8c28883, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3958482300002050842, guid: ccbf8104e0edf9c4ca6940a7c8c28883, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11857,6 +11859,7 @@ GameObject:
   - component: {fileID: 1867138618}
   - component: {fileID: 1867138617}
   - component: {fileID: 1867138620}
+  - component: {fileID: 1867138621}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -11942,6 +11945,28 @@ MonoBehaviour:
   step7Complete: 0
   step8Complete: 0
   playerRecipeInstruction: {fileID: 1868621367}
+--- !u!114 &1867138621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867138616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708a2dd94c22e4c92bda6fa575d3e39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endMenu: {fileID: 166250798}
+  exitButton: {fileID: 632613031}
+  timeDisplay: {fileID: 762888043}
+  placeDisplay: {fileID: 1654041518}
+  menuController: {fileID: 1867138616}
+  playerMenu: {fileID: 1758786983}
+  timer: {fileID: 2138746877}
+  eventSystem: {fileID: 1410178290}
+  character: {fileID: 187781821}
+  reticle: {fileID: 374655488}
 --- !u!1 &1868621367
 GameObject:
   m_ObjectHideFlags: 0

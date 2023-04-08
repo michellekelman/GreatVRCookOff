@@ -32,16 +32,16 @@ public class EndMenuBehavior : MonoBehaviour
         {
             ActivateMenu();
         }
-        // if (endMenu.activeSelf && Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == exitButton)
-        // {
-        //     SceneManager.LoadScene(SceneManager.GetActiveScene().name); //reset scene
-        // }
+        if (endMenu.activeSelf && Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == exitButton)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //reset scene
+        }
     }
 
     void ActivateMenu()
     {
         playerMenu.SetActive(false);
-        // reticle.SetActive(false);
+        reticle.SetActive(false);
         endMenu.SetActive(true);
         character.GetComponent<CharacterMovement>().speed = 0;
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;

@@ -107,6 +107,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 cookedSw.SetActive(true);
                 cookedSw.transform.parent = GetComponent<Transform>();
                 cookedSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
+                player.GetComponent<RecipeStepsBehavior>().setStep7True();
             }
         }
 
@@ -124,7 +125,6 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 spatulaSw.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
                 spatulaSw.transform.Rotate(0, -45f, 45f, Space.Self);
                 spatulaSw.transform.position = spatulaSw.transform.position + Camera.main.transform.right * .25f;
-                player.GetComponent<RecipeStepsBehavior>().setStep7True();
             }
         } 
 
