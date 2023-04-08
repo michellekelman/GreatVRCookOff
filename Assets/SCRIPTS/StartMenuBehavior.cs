@@ -36,6 +36,7 @@ public class StartMenuBehavior : MonoBehaviour
     {
         if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
         {
+            character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
         }
         if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
