@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17292506, g: 0.21610898, b: 0.29807693, a: 1}
+  m_IndirectSpecularColor: {r: 0.17292468, g: 0.21610828, b: 0.29807603, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -929,6 +929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 187781821}
+  spatula: {fileID: 1028753114}
+  cookedSw: {fileID: 864278841}
 --- !u!1 &187781821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1021,8 @@ MonoBehaviour:
   player_num: {fileID: 527607634}
   timer: {fileID: 2138746877}
   instruction: {fileID: 1868621367}
+  character: {fileID: 187781821}
+  menuController: {fileID: 1867138616}
 --- !u!114 &187781826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,12 +1105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: 
-  B: 
-  X: 
-  Y: 
-  menu: 
-  OK: 
+  A: js11
+  B: js10
+  X: js10
+  Y: js10
+  menu: js7
+  OK: js7
   bMap: []
 --- !u!1 &198807233 stripped
 GameObject:
@@ -3886,7 +3890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4219352889690714, guid: 12350bfc702bef44499bfd46c8dbb426, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4219352889690714, guid: 12350bfc702bef44499bfd46c8dbb426, type: 3}
       propertyPath: m_LocalScale.x
@@ -11231,7 +11235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3958482300002050842, guid: ccbf8104e0edf9c4ca6940a7c8c28883, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3958482300002050842, guid: ccbf8104e0edf9c4ca6940a7c8c28883, type: 3}
       propertyPath: m_LocalPosition.x

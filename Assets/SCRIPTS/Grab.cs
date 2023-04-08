@@ -85,7 +85,7 @@ public class Grab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         reticlein = false;
     }
 
-    void ReturnObject(GameObject heldObj)
+    public void ReturnObject(GameObject heldObj)
     {
         if(heldObj.name == "Knife_Butter")
         {
