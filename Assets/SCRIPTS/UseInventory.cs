@@ -20,7 +20,7 @@ public class UseInventory : MonoBehaviour
     {
         GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
 
-        if(Input.GetButtonDown(X) && activeObj != null) 
+        if(Input.GetButtonDown(X) && activeObj != null && activeObj.GetComponent<Outline>().enabled) 
         { 
             Debug.Log("Here" + activeObj.name);
             if( activeObj.name.Contains("Bread")) {
