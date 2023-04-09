@@ -16,6 +16,7 @@ public class PlayerMenu : MonoBehaviour
     public int timeOffset; 
     string[] instructionSet;
     int currInstruction;
+    public bool offsetSet;
 
     public GameObject menuController;
 
@@ -36,6 +37,7 @@ public class PlayerMenu : MonoBehaviour
             "8. Once fully cooked (golden brown with melted cheese), remove sandwhich and put on plate",
         };
         currInstruction = 0;
+        offsetSet = false;
     }
 
     // Update is called once per frame

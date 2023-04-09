@@ -19,6 +19,7 @@ public class StartMenuBehavior : MonoBehaviour
     string X;
     string Y;
     private string[] bMap;
+    public bool offset;
     
     // Start is called before the first frame update
     void Start()
@@ -26,10 +27,11 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 0;
         reticle.SetActive(false);
         playerMenu.SetActive(false);
-        instructions.SetActive(false);
+        // instructions.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
+        offset = false;
     }
 
     // Update is called once per frame
@@ -38,7 +40,6 @@ public class StartMenuBehavior : MonoBehaviour
         if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
         {
             // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
-            // Debug.Log("Hello");
             PlayGame();
         }
         else if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
@@ -62,6 +63,11 @@ public class StartMenuBehavior : MonoBehaviour
 
     public void PlayGame()
     {
+        if (!offset) {
+            character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
+            offset = true;
+            character.GetComponent<PlayerMenu>().offsetSet = true;
+        }
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
         eventSystem.GetComponent<StandaloneInputModule>().enabled = false;
         menu.SetActive(false);
@@ -70,7 +76,6 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 5;
         reticle.SetActive(true);
         playerMenu.SetActive(true);
-        character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
     }
 
     public void ShowInstructions()

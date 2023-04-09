@@ -51,7 +51,7 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
-        if (Input.GetButtonDown(Y) && (recipe.activeSelf && instructions.activeSelf))
+        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf) && (character.GetComponent<PlayerMenu>().offsetSet==true))
         {
             ResumeGame();
         }
@@ -59,16 +59,18 @@ public class SettingsMenuBehavior : MonoBehaviour
 
     public void ActivateMenu()
     {
-            playerMenu.SetActive(false);
-            eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
-            eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
-            character.GetComponent<CharacterMovement>().speed = 0;
-            reticle.SetActive(false);
-            menu.SetActive(true);
-            recipe.SetActive(false);
-            instructions.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(recipeButton);
+        playerMenu.SetActive(false);
+        eventSystem.SetActive(false);
+        eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
+        eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
+        eventSystem.SetActive(true);
+        character.GetComponent<CharacterMovement>().speed = 0;
+        reticle.SetActive(false);
+        menu.SetActive(true);
+        recipe.SetActive(false);
+        instructions.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(recipeButton);
     }
 
     public void ShowRecipe()
@@ -85,8 +87,10 @@ public class SettingsMenuBehavior : MonoBehaviour
 
     public void ResumeGame()
     {
+        eventSystem.SetActive(false);
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
         eventSystem.GetComponent<StandaloneInputModule>().enabled = false;
+        eventSystem.SetActive(true);
         menu.SetActive(false);
         recipe.SetActive(false);
         instructions.SetActive(false);
