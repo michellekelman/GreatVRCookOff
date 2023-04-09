@@ -7,6 +7,7 @@ public class TempMenu : MonoBehaviour
     public GameObject pointerDial;
     public GameObject player;
     public GameObject tempMenu;
+    public GameObject settingsMenu;
     bool inputProcessed;
     int pointerAngle; 
     int currAngle;
@@ -40,7 +41,7 @@ public class TempMenu : MonoBehaviour
         }
 
         //pressing X to interact with stove
-        if (Input.GetButtonDown(X))
+        if (Input.GetButtonDown(X) && !settingsMenu.activeSelf)
         {
             if (!player.GetComponent<Holding>().isHolding &&
             player.GetComponent<ActiveGameObject>().getActiveObject() != null &&

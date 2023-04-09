@@ -1067,6 +1067,7 @@ MonoBehaviour:
   pointerDial: {fileID: 129812970}
   player: {fileID: 187781821}
   tempMenu: {fileID: 605211160}
+  settingsMenu: {fileID: 709392588}
 --- !u!114 &187781829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,11 +1111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: js8
-  B: js10
-  X: js1
-  Y: js0
-  menu: js9
+  A: js10
+  B: js5
+  X: js2
+  Y: js3
+  menu: js11
   OK: 
   bMap: []
 --- !u!114 &187781832
@@ -3769,7 +3770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -30}
+  m_AnchoredPosition: {x: 500, y: -450}
   m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527607636
@@ -4451,7 +4452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 400}
   m_SizeDelta: {x: -1220, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &605211160
@@ -6154,7 +6155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -260, y: 50}
+  m_AnchoredPosition: {x: -700, y: 400}
   m_SizeDelta: {x: 500, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779624485
@@ -11870,7 +11871,7 @@ Canvas:
   m_GameObject: {fileID: 1758786983}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 198807238}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -12146,7 +12147,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.25
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -12455,7 +12456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -360, y: -100}
+  m_AnchoredPosition: {x: -700, y: -520}
   m_SizeDelta: {x: 700, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868621369
@@ -12478,10 +12479,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Collect ingredients from pantry (Bread, Cheese, Butter)
-
-    and place
-    on the kitchen table'
+  m_text: 1. Collect ingredients from pantry (Bread, Cheese, Butter)and place on
+    the kitchen table
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12544,7 +12543,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -644.51953, y: 0, z: 0, w: 0}
+  m_margin: {x: -77.04541, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14487,7 +14486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -70}
+  m_AnchoredPosition: {x: 500, y: -500}
   m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138746879
