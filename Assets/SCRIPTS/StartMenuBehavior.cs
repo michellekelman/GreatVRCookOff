@@ -26,6 +26,7 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 0;
         reticle.SetActive(false);
         playerMenu.SetActive(false);
+        instructions.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
@@ -36,7 +37,8 @@ public class StartMenuBehavior : MonoBehaviour
     {
         if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
         {
-            character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
+            // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
+            // Debug.Log("Hello");
             PlayGame();
         }
         else if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
@@ -45,7 +47,7 @@ public class StartMenuBehavior : MonoBehaviour
         }
         else if (Input.GetButton(Y) && instructions.activeSelf)
         {
-            character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
+            // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
         }
         if (menu.activeSelf && !first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
@@ -68,6 +70,7 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 5;
         reticle.SetActive(true);
         playerMenu.SetActive(true);
+        character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
     }
 
     public void ShowInstructions()

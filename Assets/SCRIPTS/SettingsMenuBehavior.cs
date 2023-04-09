@@ -51,7 +51,7 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
-        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf))
+        if (Input.GetButtonDown(Y) && (recipe.activeSelf && instructions.activeSelf))
         {
             ResumeGame();
         }
