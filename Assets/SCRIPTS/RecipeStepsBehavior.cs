@@ -16,7 +16,6 @@ public class RecipeStepsBehavior : MonoBehaviour
     [HideInInspector] public bool step8Complete;
 
     public GameObject playerRecipeInstruction;
-    bool dummy = false;
     void Start()
     {
         step1Complete = false;

@@ -26,6 +26,7 @@ public class ButterKnife : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Knife" && (!butteredBread1.activeSelf || !butteredBread2.activeSelf))
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
@@ -35,6 +36,7 @@ public class ButterKnife : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 butteredKnife.transform.position = Camera.main.transform.position + Camera.main.transform.forward * .75f + Camera.main.transform.right * .25f;
                 butteredKnife.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
                 butteredKnife.transform.Rotate(0, 0, 90f, Space.Self);
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
     }
@@ -42,10 +44,12 @@ public class ButterKnife : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData) 
     {
         reticlein = true;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
         reticlein = false;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
     }
 }

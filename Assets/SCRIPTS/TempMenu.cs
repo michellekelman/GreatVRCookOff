@@ -29,28 +29,38 @@ public class TempMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown(X)) {
-            // Debug.Log("X is pressed!");
-        }
-        //pressing X to interact with stove
-        if(Input.GetButtonDown(X) && 
-            !player.GetComponent<Holding>().isHolding &&
-            player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
-            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove")) 
+        if (!player.GetComponent<Holding>().isHolding && player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
+            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove"))
         {
-            tempOn = !tempOn; 
-            tempMenu.SetActive(tempOn); // toggling the dial menu 
-            player.transform.GetComponent<CharacterMovement>().enabled = !tempOn; // toggling character movement 
-            Debug.Log("Show Stove Dial" + tempOn);
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+        }
+        else if (player.GetComponent<ActiveGameObject>().getActiveObject() == null && player.GetComponent<InteractionQueueBehavior>().getCurrentQueue() == "Press X to Interact")
+        {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+        }
 
-            if(!tempOn) // if false => closing menu
+        //pressing X to interact with stove
+        if (Input.GetButtonDown(X))
+        {
+            if (!player.GetComponent<Holding>().isHolding &&
+            player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
+            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove") && !tempOn)
             {
-                // get temp reading here.
+                tempOn = true; 
+                tempMenu.SetActive(tempOn); // toggling the dial menu 
+                player.transform.GetComponent<CharacterMovement>().enabled = false; // toggling character movement 
+                Debug.Log("Show Stove Dial" + tempOn); 
+            }
+            else if (tempOn)
+            {
                 if(currAngle==180 || currAngle== -180){
                     Debug.Log("Oven set to med");
                     player.GetComponent<RecipeStepsBehavior>().setStep2True();
                 }
-
+                tempOn = false;
+                tempMenu.SetActive(tempOn);
+                player.transform.GetComponent<CharacterMovement>().enabled = true;
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 

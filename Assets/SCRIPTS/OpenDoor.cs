@@ -26,6 +26,10 @@ public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
+        if (hover)
+        {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+        }
         if(Input.GetButtonDown(keyX) && hover==true && open==false) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 60.0f, 0.0f);
             open = true;

@@ -24,6 +24,7 @@ public class ButterBread : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Knife_Butter")
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Interact");
             if(Input.GetButtonDown(B))
             {
                 bread.SetActive(false);
@@ -32,6 +33,8 @@ public class ButterBread : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 player.GetComponent<Holding>().heldObj = knife;
                 player.GetComponent<Holding>().heldObj.SetActive(true);
                 player.GetComponent<RecipeStepsBehavior>().incrementStep3();
+                player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
     }
@@ -39,10 +42,16 @@ public class ButterBread : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData) 
     {
         reticlein = true;
+        if (player.GetComponent<Holding>().heldObj.name == "Knife_Butter")
+            player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
+        else
+            player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
         reticlein = false;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
+        player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
     }
 }

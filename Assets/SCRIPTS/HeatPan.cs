@@ -24,6 +24,7 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Pan")
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
@@ -31,6 +32,7 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 player.GetComponent<Holding>().heldObj = new GameObject();
                 stovePan.SetActive(true);
                 player.GetComponent<RecipeStepsBehavior>().setStep2True();
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
             //Add temp menu stuff
         }        
@@ -39,10 +41,12 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData) 
     {
         reticlein = true;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
         reticlein = false;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
     }    
 }

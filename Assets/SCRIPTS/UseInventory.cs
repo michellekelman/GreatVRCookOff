@@ -19,28 +19,43 @@ public class UseInventory : MonoBehaviour
     void Update()
     {
         GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
-
+        int itemsInInvent = player.GetComponent<InventoryMenu>().getCount();
+        if (activeObj != null)
+        {
+            if (activeObj.name.Contains("Bread") || activeObj.name.Contains("Cheese") || activeObj.name.Contains("Butter")) {
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Store");
+            }
+            else if (activeObj.name.Contains("Table") && itemsInInvent==3) {
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+            }
+        }
+        if (activeObj == null)
+        {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+        }
         if(Input.GetButtonDown(X) && activeObj != null) 
         { 
             Debug.Log("Here" + activeObj.name);
             if( activeObj.name.Contains("Bread")) {
                 player.GetComponent<InventoryMenu>().addObj("Bread", activeObj); 
-                activeObj.SetActive(false); 
+                activeObj.SetActive(false);
+                player.GetComponent<ActiveGameObject>().setActiveObject(null);
             }
             else if(activeObj.name.Contains("Cheese")) {
                 player.GetComponent<InventoryMenu>().addObj("Cheese", activeObj); 
                 activeObj.SetActive(false);
+                player.GetComponent<ActiveGameObject>().setActiveObject(null);
             } 
             else if (activeObj.name.Contains("Butter")) {
                 player.GetComponent<InventoryMenu>().addObj("Butter", activeObj); 
                 activeObj.SetActive(false);
+                player.GetComponent<ActiveGameObject>().setActiveObject(null);
             }
             player.GetComponent<InventoryMenu>().loadInventory();
         }
 
         if(Input.GetButtonDown(X) && activeObj != null) {
-            int itemsInInvent = player.GetComponent<InventoryMenu>().getCount();
-            if( activeObj.name.Contains("Table") && itemsInInvent==3) {
+            if(activeObj.name.Contains("Table") && itemsInInvent==3) {
                 int startIndex = activeObj.name.IndexOf("(");
                 string boardNumber = activeObj.name.Substring(startIndex+1,1);
                 GameObject kitchenItems = GameObject.Find("KitchenItems "+"("+boardNumber+")");
@@ -51,6 +66,8 @@ public class UseInventory : MonoBehaviour
                 activeObj.GetComponent<Highlight>().enabled = false;
                 player.GetComponent<RecipeStepsBehavior>().setStep1True();
                 player.GetComponent<UseInventory>().enabled = false;
+                player.GetComponent<ActiveGameObject>().setActiveObject(null);
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
         

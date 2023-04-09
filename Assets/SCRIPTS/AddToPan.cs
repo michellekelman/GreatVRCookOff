@@ -32,6 +32,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //if half sandwich in pan add last bread
         if(reticlein && (player.GetComponent<Holding>().heldObj.name == "Bread_Butter1" || player.GetComponent<Holding>().heldObj.name == "Bread_Butter2") && halfSw.activeSelf)
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
@@ -42,12 +43,14 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 rawSw.transform.parent = GetComponent<Transform>();
                 rawSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
                 player.GetComponent<RecipeStepsBehavior>().setStep6True();
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 
         //if player adds Bread_Butter1 first
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Bread_Butter1" && !breadSlice2.activeSelf)
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
@@ -57,12 +60,14 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 breadSlice1.transform.parent = GetComponent<Transform>();
                 breadSlice1.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * .125f + GetComponent<Transform>().right * .05f;
                 player.GetComponent<RecipeStepsBehavior>().setStep4True();
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
         
         //if player adds Bread_Butter2 first
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Bread_Butter2" && !breadSlice1.activeSelf)
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
@@ -72,12 +77,14 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 breadSlice2.transform.parent = GetComponent<Transform>();
                 breadSlice2.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * .125f + GetComponent<Transform>().right * .05f;
                 player.GetComponent<RecipeStepsBehavior>().setStep4True();
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 
         //if bread in pan add cheese
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "CheeseSlice" && (breadSlice1.activeSelf || breadSlice2.activeSelf))
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
@@ -95,12 +102,14 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 halfSw.transform.parent = GetComponent<Transform>();
                 halfSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
                 player.GetComponent<RecipeStepsBehavior>().setStep5True();
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 
         //if holding spatula and sandwich ready to flip
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && rawSw.activeSelf)
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 rawSw.SetActive(false);
@@ -108,12 +117,14 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 cookedSw.transform.parent = GetComponent<Transform>();
                 cookedSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
                 player.GetComponent<RecipeStepsBehavior>().setStep7True();
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 
         //if holding spatula and sandwich done cooking
         else if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && cookedSw.activeSelf) //Add check to see if the sandwich has been flipped and cooked first
         {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 cookedSw.SetActive(false);
@@ -125,6 +136,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 spatulaSw.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
                 spatulaSw.transform.Rotate(0, -45f, 45f, Space.Self);
                 spatulaSw.transform.position = spatulaSw.transform.position + Camera.main.transform.right * .25f;
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         } 
 
@@ -133,10 +145,12 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData) 
     {
         reticlein = true;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
         reticlein = false;
+        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
     }    
 }
