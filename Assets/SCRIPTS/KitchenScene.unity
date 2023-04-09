@@ -1024,6 +1024,7 @@ MonoBehaviour:
   timer: {fileID: 2138746877}
   instruction: {fileID: 1868621367}
   character: {fileID: 187781821}
+  timeOffset: 0
   menuController: {fileID: 1867138616}
 --- !u!114 &187781826
 MonoBehaviour:

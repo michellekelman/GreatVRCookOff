@@ -33,7 +33,7 @@ public class UseInventory : MonoBehaviour
         {
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
         }
-        if(Input.GetButtonDown(X) && activeObj != null) 
+        if(Input.GetButtonDown(X) && activeObj != null && activeObj.GetComponent<Outline>().enabled) 
         { 
             Debug.Log("Here" + activeObj.name);
             if( activeObj.name.Contains("Bread")) {

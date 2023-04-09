@@ -12,6 +12,8 @@ public class PlayerMenu : MonoBehaviour
     public GameObject instruction; 
     public GameObject character;
     int seconds; 
+    int startSecond;
+    public int timeOffset; 
     string[] instructionSet;
     int currInstruction;
 
@@ -20,6 +22,8 @@ public class PlayerMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startSecond = 0;
+        timeOffset = (int)Time.timeSinceLevelLoad;
         seconds = (int)Time.timeSinceLevelLoad;
         instructionSet = new string[] { 
             "1. Collect ingredients from pantry",
@@ -40,7 +44,8 @@ public class PlayerMenu : MonoBehaviour
         if (!character.GetComponent<RecipeStepsBehavior>().step8Complete)
         {
             seconds = (int)Time.timeSinceLevelLoad;
-            timer.GetComponent<TMP_Text>().text = getTime(seconds);
+            startSecond = seconds - timeOffset;
+            timer.GetComponent<TMP_Text>().text = getTime(startSecond);
         }
     }
 
@@ -52,7 +57,6 @@ public class PlayerMenu : MonoBehaviour
 
     void updateInstruction() {
         currInstruction += 1;
-
         // TODO : Last instruction and End game scenario 
         instruction.GetComponent<TMP_Text>().text = instructionSet[currInstruction];
     }
