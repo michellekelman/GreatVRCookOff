@@ -7,6 +7,7 @@ public class UseInventory : MonoBehaviour
     public GameObject player;
     string X;
     string[] bMap;
+    public AudioClip clip;
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class UseInventory : MonoBehaviour
         }
         if(Input.GetButtonDown(X) && activeObj != null && activeObj.GetComponent<Outline>().enabled) 
         { 
-            Debug.Log("Here" + activeObj.name);
+            // Debug.Log("Here" + activeObj.name);
             if( activeObj.name.Contains("Bread")) {
                 player.GetComponent<InventoryMenu>().addObj("Bread", activeObj); 
                 activeObj.SetActive(false);
@@ -68,6 +69,7 @@ public class UseInventory : MonoBehaviour
                 player.GetComponent<UseInventory>().enabled = false;
                 player.GetComponent<ActiveGameObject>().setActiveObject(null);
                 player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+                AudioSource.PlayClipAtPoint(clip, foodBoard.transform.position, 0.5f);
             }
         }
         

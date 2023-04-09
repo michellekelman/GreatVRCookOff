@@ -18,6 +18,7 @@ public class StartMenuBehavior : MonoBehaviour
     private bool first = false;
     string X;
     string Y;
+    string B;
     private string[] bMap;
     public bool offset;
     
@@ -31,6 +32,7 @@ public class StartMenuBehavior : MonoBehaviour
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
+        B = bMap[1];
         offset = false;
     }
 
@@ -50,6 +52,9 @@ public class StartMenuBehavior : MonoBehaviour
         {
             // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
+        }
+        else if (EventSystem.current.currentSelectedGameObject == null) {
+            EventSystem.current.SetSelectedGameObject(playButton);
         }
         if (menu.activeSelf && !first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
         {

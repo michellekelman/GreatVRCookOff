@@ -10,6 +10,7 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool reticlein;
     private string B;
     private string[] bMap;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 stovePan.SetActive(true);
                 player.GetComponent<RecipeStepsBehavior>().setStep2True();
                 player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+                AudioSource.PlayClipAtPoint(clip, stovePan.transform.position, 0.5f);
             }
             //Add temp menu stuff
         }        

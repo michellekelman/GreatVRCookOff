@@ -11,6 +11,7 @@ public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     bool open;
     string keyX;
     private string[] bMap;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +34,12 @@ public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if(Input.GetButtonDown(keyX) && hover==true && open==false) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 60.0f, 0.0f);
             open = true;
+            AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
         else if(Input.GetButtonDown(keyX) && hover==true && open==true) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
             open = false;
+            AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
     }
 

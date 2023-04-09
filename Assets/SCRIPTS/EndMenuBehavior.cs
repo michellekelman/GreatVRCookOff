@@ -18,11 +18,15 @@ public class EndMenuBehavior : MonoBehaviour
     public GameObject timer;
     public GameObject eventSystem;
     public GameObject character;
-
     public GameObject reticle;
+    public GameObject plate;
+    string X;
+    private string[] bMap;
+
     void Start()
     {
-        
+        bMap = character.GetComponent<ButtonMapping>().getMap();
+        X = bMap[2];
     }
 
     // Update is called once per frame
@@ -32,9 +36,11 @@ public class EndMenuBehavior : MonoBehaviour
         {
             ActivateMenu();
         }
-        if (endMenu.activeSelf && Input.GetButtonDown("js11") && EventSystem.current.currentSelectedGameObject == exitButton)
+        if (endMenu.activeSelf && Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == exitButton)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //reset scene
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name); //reset scene
+            Debug.Log("Quitting Application");
+            Application.Quit();
         }
     }
 
@@ -49,5 +55,7 @@ public class EndMenuBehavior : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(exitButton);
         timeDisplay.GetComponent<TMP_Text>().text = timer.GetComponent<TMP_Text>().text;
+        plate.GetComponent<Outline>().enabled = false;
+        plate.GetComponent<Highlight>().enabled = false;
     }
 }

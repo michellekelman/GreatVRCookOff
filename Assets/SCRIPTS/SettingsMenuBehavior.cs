@@ -13,22 +13,25 @@ public class SettingsMenuBehavior : MonoBehaviour
     public GameObject reticle;
     public GameObject recipe;
     public GameObject instructions;
-
     public GameObject recipeButton;
     public GameObject instructionsButton;
     public GameObject exitButton;
     public GameObject eventSystem;
     public GameObject playerMenu;
+    public GameObject tempMenu;
     string X;
     string Y;
+    string B;
     string menuInputButton;
     private string[] bMap;
+
     void Start()
     {
         menu.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
+        B = bMap[1];
         menuInputButton = bMap[4];
     }
 
@@ -55,11 +58,15 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
+        if (menu.activeSelf && Input.GetButtonDown(B)) {
+            EventSystem.current.SetSelectedGameObject(recipeButton);
+        }
     }
 
     public void ActivateMenu()
     {
         playerMenu.SetActive(false);
+        tempMenu.SetActive(false);
         eventSystem.SetActive(false);
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
         eventSystem.GetComponent<StandaloneInputModule>().enabled = true;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -13,10 +14,13 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject cookedSw;
     public GameObject spatulaSw;
     public GameObject reticle;
+    public GameObject label;
     private bool reticlein;
     private string B;
     private string[] bMap;
     private int flipping;
+    public AudioClip clip;
+    public AudioClip clip2;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +33,6 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        //Add checks if stove is heated to medium and time delays for cooking steps 
-
         //if half sandwich in pan add last bread
         if(reticlein && (player.GetComponent<Holding>().heldObj.name == "Bread_Butter1" || player.GetComponent<Holding>().heldObj.name == "Bread_Butter2") && halfSw.activeSelf)
         {
@@ -46,6 +48,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 rawSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
                 player.GetComponent<RecipeStepsBehavior>().setStep6True();
                 player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+                Invoke("FlipDelay", 3.0f);
             }
         }
 
@@ -63,6 +66,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 breadSlice1.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * .125f + GetComponent<Transform>().right * .05f;
                 player.GetComponent<RecipeStepsBehavior>().setStep4True();
                 player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+                AudioSource.PlayClipAtPoint(clip2, breadSlice1.transform.position, 0.2f);
             }
         }
         
@@ -80,6 +84,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 breadSlice2.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * .125f + GetComponent<Transform>().right * .05f;
                 player.GetComponent<RecipeStepsBehavior>().setStep4True();
                 player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+                AudioSource.PlayClipAtPoint(clip2, breadSlice2.transform.position, 0.2f);
             }
         }
 
@@ -111,28 +116,30 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //if holding spatula and sandwich ready to flip
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && rawSw.activeSelf)
         {
-            if(Input.GetButtonDown(B))
+            if(Input.GetButtonDown(B) && label.activeSelf)
             {
                 flipping = 1;
+                label.SetActive(false);
                 player.GetComponent<RecipeStepsBehavior>().setStep7True();
             }
+
         }
 
         if (flipping>0) {
             if (flipping < 20) {
-                Debug.Log("up");
-                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y + 0.03f, rawSw.transform.position.z);
+                //Debug.Log("up");
+                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y + 0.02f, rawSw.transform.position.z);
                 flipping = flipping+1;
             }
             else if (flipping < 40) {
-                Debug.Log("turn");
+                //Debug.Log("turn");
                 rawSw.transform.Rotate(Vector3.right * -9, Space.Self); 
                 rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y + 0.02f, rawSw.transform.position.z - 0.03f);
                 flipping = flipping+1;
             }
             else if (flipping < 60) {
-                Debug.Log("down");
-                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y - 0.03f, rawSw.transform.position.z);
+                //Debug.Log("down");
+                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y - 0.02f, rawSw.transform.position.z);
                 flipping = flipping+1;
             }
             else if (flipping==60) {
@@ -141,6 +148,7 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 cookedSw.transform.parent = GetComponent<Transform>();
                 cookedSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
                 flipping = 0;
+                Invoke("DoneDelay", 3.0f);
             }
         }
 
@@ -148,9 +156,10 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         else if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && cookedSw.activeSelf) //Add check to see if the sandwich has been flipped and cooked first
         {
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
-            if(Input.GetButtonDown(B))
+            if(Input.GetButtonDown(B) && label.activeSelf)
             {
                 cookedSw.SetActive(false);
+                label.SetActive(false);
                 player.GetComponent<Holding>().heldObj.SetActive(false);
                 spatulaSw.SetActive(true);
                 player.GetComponent<Holding>().heldObj = spatulaSw;
@@ -176,4 +185,16 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         reticlein = false;
         player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
     }    
+
+    void FlipDelay() {
+        label.SetActive(true);    
+        label.GetComponent<TMP_Text>().text = "FLIP";
+        AudioSource.PlayClipAtPoint(clip, rawSw.transform.position, 0.5f);
+    }
+
+    void DoneDelay() {
+        label.SetActive(true);
+        label.GetComponent<TMP_Text>().text = "DONE";
+        AudioSource.PlayClipAtPoint(clip, cookedSw.transform.position, 0.5f);
+    }
 }

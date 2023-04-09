@@ -49,12 +49,12 @@ public class TempMenu : MonoBehaviour
                 tempOn = true; 
                 tempMenu.SetActive(tempOn); // toggling the dial menu 
                 player.transform.GetComponent<CharacterMovement>().enabled = false; // toggling character movement 
-                Debug.Log("Show Stove Dial" + tempOn); 
+                // Debug.Log("Show Stove Dial" + tempOn); 
             }
             else if (tempOn)
             {
                 if(currAngle==180 || currAngle== -180){
-                    Debug.Log("Oven set to med");
+                    // Debug.Log("Oven set to med");
                     player.GetComponent<RecipeStepsBehavior>().setStep2True();
                     this.enabled = false;
                 }
@@ -84,7 +84,7 @@ public class TempMenu : MonoBehaviour
                 inputProcessed = false;
             }
 
-            Debug.Log("Curr Angle is: "+currAngle);
+            //Debug.Log("Curr Angle is: "+currAngle);
         }
     }
 
