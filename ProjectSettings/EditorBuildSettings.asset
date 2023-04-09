@@ -14,8 +14,11 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/MiLabCardboardExtension/Scenes/Map Bluetooth Key.unity
     guid: 1eb807ac90408844da5fd17e087fea1e
+  - enabled: 1
+    path: Assets/SCRIPTS/KitchenScene.unity
+    guid: 72d09144e15e1c3408aed2f5ec30e0a1
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0bbca5b0980d0a141b7cf9f44d8c9f08, type: 2}
