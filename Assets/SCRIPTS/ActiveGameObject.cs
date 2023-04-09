@@ -24,7 +24,7 @@ public class ActiveGameObject : MonoBehaviour
 
     public void setActiveObject(GameObject obj) {
         activeObject = obj;
-        Debug.Log(activeObject);
+        //Debug.Log(activeObject);
     }
 
     public void setInHandObject(GameObject obj) {

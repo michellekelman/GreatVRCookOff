@@ -91,7 +91,7 @@ public class RecipeStepsBehavior : MonoBehaviour
         }
         else 
         {
-            playerRecipeInstruction.GetComponent<TMP_Text>().text = "1. Collect ingredients from pantry";
+            playerRecipeInstruction.GetComponent<TMP_Text>().text = "1. Collect ingredients from pantry (Bread, Cheese, and Butter)";
         }
     }
 

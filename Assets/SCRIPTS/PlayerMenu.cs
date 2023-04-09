@@ -26,7 +26,7 @@ public class PlayerMenu : MonoBehaviour
         timeOffset = (int)Time.timeSinceLevelLoad;
         seconds = (int)Time.timeSinceLevelLoad;
         instructionSet = new string[] { 
-            "1. Collect ingredients from pantry",
+            "1. Collect ingredients from pantry (Bread, Cheese, and Butter)",
             "2. Heat Pan on Medium",
             "3. Spread butter on each slide of bread",
             "4. Put one slice of bread (butter down) in the pan",
@@ -52,7 +52,7 @@ public class PlayerMenu : MonoBehaviour
     string getTime(int seconds) {
         int minutes = (int)seconds / 60;
         int remainingSeconds = (int)seconds % 60;
-        return string.Format("{0}:{1:00}", minutes, remainingSeconds);
+        return string.Format("Time: {0}:{1:00}", minutes, remainingSeconds);
     }
 
     void updateInstruction() {

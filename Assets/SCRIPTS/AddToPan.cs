@@ -16,12 +16,14 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool reticlein;
     private string B;
     private string[] bMap;
+    private int flipping;
 
     // Start is called before the first frame update
     void Start()
     {
         bMap = player.GetComponent<ButtonMapping>().getMap();
         B = bMap[1];
+        flipping = 0;
     }
 
     // Update is called once per frame
@@ -109,15 +111,36 @@ public class AddToPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //if holding spatula and sandwich ready to flip
         if(reticlein && player.GetComponent<Holding>().heldObj.name == "Spatula" && rawSw.activeSelf)
         {
-            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
+                flipping = 1;
+                player.GetComponent<RecipeStepsBehavior>().setStep7True();
+            }
+        }
+
+        if (flipping>0) {
+            if (flipping < 20) {
+                Debug.Log("up");
+                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y + 0.03f, rawSw.transform.position.z);
+                flipping = flipping+1;
+            }
+            else if (flipping < 40) {
+                Debug.Log("turn");
+                rawSw.transform.Rotate(Vector3.right * -9, Space.Self); 
+                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y + 0.02f, rawSw.transform.position.z - 0.03f);
+                flipping = flipping+1;
+            }
+            else if (flipping < 60) {
+                Debug.Log("down");
+                rawSw.transform.position = new Vector3(rawSw.transform.position.x, rawSw.transform.position.y - 0.03f, rawSw.transform.position.z);
+                flipping = flipping+1;
+            }
+            else if (flipping==60) {
                 rawSw.SetActive(false);
                 cookedSw.SetActive(true);
                 cookedSw.transform.parent = GetComponent<Transform>();
                 cookedSw.transform.position = GetComponent<Transform>().position + GetComponent<Transform>().up * -.05f + GetComponent<Transform>().right * .0625f + GetComponent<Transform>().forward * .35f;
-                player.GetComponent<RecipeStepsBehavior>().setStep7True();
-                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+                flipping = 0;
             }
         }
 

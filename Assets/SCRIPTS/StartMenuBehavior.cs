@@ -39,12 +39,13 @@ public class StartMenuBehavior : MonoBehaviour
             character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
         }
-        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
+        else if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
         {
             ShowInstructions();
         }
-        if (Input.GetButton(Y) && instructions.activeSelf)
+        else if (Input.GetButton(Y) && instructions.activeSelf)
         {
+            character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
         }
         if (menu.activeSelf && !first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
