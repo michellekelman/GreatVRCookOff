@@ -2,11 +2,11 @@
 CS6334 Spring 2023
 
 ## Team Members:
-Tahmid Imran
-Ethan Roceles
-Chethan Birur Nataraja
-Mustafa Poonawala
-Michelle Kelman
+- Tahmid Imran
+- Ethan Roceles
+- Chethan Birur Nataraja
+- Mustafa Poonawala
+- Michelle Kelman
 
 ## Primary Scene: 
 KitchenScene.unity
