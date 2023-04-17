@@ -15,6 +15,7 @@ public class StartMenuBehavior : MonoBehaviour
     public GameObject instructionsButton;
     public GameObject eventSystem;
     public GameObject playerMenu;
+    public GameObject menuController;
     private bool first = false;
     string X;
     string Y;
@@ -69,9 +70,9 @@ public class StartMenuBehavior : MonoBehaviour
     public void PlayGame()
     {
         if (!offset) {
-            character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
+            menuController.GetComponent<TimerControl>().timeOffset = (int)Time.timeSinceLevelLoad;
             offset = true;
-            character.GetComponent<PlayerMenu>().offsetSet = true;
+            menuController.GetComponent<TimerControl>().offsetSet = true;
         }
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
         eventSystem.GetComponent<StandaloneInputModule>().enabled = false;

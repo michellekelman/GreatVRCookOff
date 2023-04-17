@@ -19,6 +19,7 @@ public class SettingsMenuBehavior : MonoBehaviour
     public GameObject eventSystem;
     public GameObject playerMenu;
     public GameObject tempMenu;
+    public GameObject menuController;
     string X;
     string Y;
     string B;
@@ -54,7 +55,7 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
-        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf) && (character.GetComponent<PlayerMenu>().offsetSet==true))
+        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf) && (menuController.GetComponent<TimerControl>().offsetSet==true))
         {
             ResumeGame();
         }

@@ -9,7 +9,7 @@ public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject player;
     bool hover;
     bool open;
-    string keyX;
+    string B;
     private string[] bMap;
     public AudioClip clip;
 
@@ -21,7 +21,7 @@ public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         open = false;
 
     // <- Key Mappings -> 
-        keyX=bMap[2];
+        B = bMap[1];
     }
 
     // Update is called once per frame
@@ -29,14 +29,14 @@ public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (hover)
         {
-            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Interact");
         }
-        if(Input.GetButtonDown(keyX) && hover==true && open==false) {
+        if(Input.GetButtonDown(B) && hover==true && open==false) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 60.0f, 0.0f);
             open = true;
             AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
-        else if(Input.GetButtonDown(keyX) && hover==true && open==true) {
+        else if(Input.GetButtonDown(B) && hover==true && open==true) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
             open = false;
             AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);

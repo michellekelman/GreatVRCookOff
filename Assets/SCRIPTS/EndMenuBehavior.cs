@@ -22,17 +22,19 @@ public class EndMenuBehavior : MonoBehaviour
     public GameObject plate;
     string X;
     private string[] bMap;
+    bool menuOpen;
 
     void Start()
     {
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
+        menuOpen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (character.GetComponent<RecipeStepsBehavior>().step8Complete)
+        if (character.GetComponent<RecipeStepsBehavior>().step8Complete && !menuOpen)
         {
             ActivateMenu();
         }
@@ -57,5 +59,6 @@ public class EndMenuBehavior : MonoBehaviour
         timeDisplay.GetComponent<TMP_Text>().text = timer.GetComponent<TMP_Text>().text;
         plate.GetComponent<Outline>().enabled = false;
         plate.GetComponent<Highlight>().enabled = false;
+        menuOpen = true;
     }
 }

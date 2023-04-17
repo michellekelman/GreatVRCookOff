@@ -12,14 +12,14 @@ public class TempMenu : MonoBehaviour
     int pointerAngle; 
     int currAngle;
     bool tempOn;
-    private string X;
+    private string B;
     private string[] bMap;
 
     // Start is called before the first frame update
     void Start()
     {
         bMap = player.GetComponent<ButtonMapping>().getMap();
-        X = bMap[2];
+        B = bMap[1];
         inputProcessed = false;
         pointerAngle = 45;
         tempOn = false;
@@ -33,15 +33,15 @@ public class TempMenu : MonoBehaviour
         if (!player.GetComponent<Holding>().isHolding && player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
             player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove"))
         {
-            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Interact");
         }
-        else if (player.GetComponent<ActiveGameObject>().getActiveObject() == null && player.GetComponent<InteractionQueueBehavior>().getCurrentQueue() == "Press X to Interact")
+        else if (player.GetComponent<ActiveGameObject>().getActiveObject() == null && player.GetComponent<InteractionQueueBehavior>().getCurrentQueue() == "Press B to Interact")
         {
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
         }
 
-        //pressing X to interact with stove
-        if (Input.GetButtonDown(X) && !settingsMenu.activeSelf)
+        // pressing B to interact with stove
+        if (Input.GetButtonDown(B) && !settingsMenu.activeSelf)
         {
             if (!player.GetComponent<Holding>().isHolding &&
             player.GetComponent<ActiveGameObject>().getActiveObject() != null &&

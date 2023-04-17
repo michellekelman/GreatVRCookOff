@@ -4,21 +4,21 @@ using UnityEngine;
 using TMPro; 
 using UnityEngine.UI;
 
-public class PlayerMenu : MonoBehaviour
+public class TimerControl : MonoBehaviour
 {
-    public GameObject menu; 
-    public GameObject player_num; 
+    // public GameObject menu; 
+    // public GameObject player_num; 
     public GameObject timer; 
-    public GameObject instruction; 
-    public GameObject character;
+    // public GameObject instruction; 
+    // public GameObject character;
     int seconds; 
     int startSecond;
     public int timeOffset; 
-    string[] instructionSet;
-    int currInstruction;
+    // string[] instructionSet;
+    // int currInstruction;
     public bool offsetSet;
 
-    public GameObject menuController;
+    // public GameObject menuController;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class PlayerMenu : MonoBehaviour
         startSecond = 0;
         timeOffset = (int)Time.timeSinceLevelLoad;
         seconds = (int)Time.timeSinceLevelLoad;
-        instructionSet = new string[] { 
+        /* instructionSet = new string[] { 
             "1. Collect ingredients from pantry (Bread, Cheese, Butter) and place on the kitchen table",
             "2. Heat Pan on Medium",
             "3. Spread butter on each slide of bread",
@@ -35,16 +35,21 @@ public class PlayerMenu : MonoBehaviour
             "6. Put second slide of bread (butter up) on cheese",
             "7. Fip the sandwich",
             "8. Once fully cooked (golden brown with melted cheese), remove sandwhich and put on plate",
-        };
-        currInstruction = 0;
+        }; */
+        // currInstruction = 0;
         offsetSet = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!character.GetComponent<RecipeStepsBehavior>().step8Complete)
+        /* if (!character.GetComponent<RecipeStepsBehavior>().step8Complete)
         {
+            seconds = (int)Time.timeSinceLevelLoad;
+            startSecond = seconds - timeOffset;
+            timer.GetComponent<TMP_Text>().text = getTime(startSecond);
+        } */
+        if (offsetSet) {
             seconds = (int)Time.timeSinceLevelLoad;
             startSecond = seconds - timeOffset;
             timer.GetComponent<TMP_Text>().text = getTime(startSecond);
@@ -58,8 +63,7 @@ public class PlayerMenu : MonoBehaviour
     }
 
     void updateInstruction() {
-        currInstruction += 1;
-        // TODO : Last instruction and End game scenario 
-        instruction.GetComponent<TMP_Text>().text = instructionSet[currInstruction];
+        // currInstruction += 1;
+        // instruction.GetComponent<TMP_Text>().text = instructionSet[currInstruction];
     }
 }
