@@ -15,10 +15,13 @@ public class StartMenuBehavior : MonoBehaviour
     public GameObject instructionsButton;
     public GameObject eventSystem;
     public GameObject playerMenu;
+    public GameObject menuController;
     private bool first = false;
     string X;
     string Y;
+    string B;
     private string[] bMap;
+    public bool offset;
     
     // Start is called before the first frame update
     void Start()
@@ -26,9 +29,12 @@ public class StartMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 0;
         reticle.SetActive(false);
         playerMenu.SetActive(false);
+        // instructions.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
+        B = bMap[1];
+        offset = false;
     }
 
     // Update is called once per frame
@@ -36,15 +42,20 @@ public class StartMenuBehavior : MonoBehaviour
     {
         if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
         {
+            // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
         }
-        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
+        else if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
         {
             ShowInstructions();
         }
-        if (Input.GetButton(Y) && instructions.activeSelf)
+        else if (Input.GetButton(Y) && instructions.activeSelf)
         {
+            // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
             PlayGame();
+        }
+        else if (EventSystem.current.currentSelectedGameObject == null) {
+            EventSystem.current.SetSelectedGameObject(playButton);
         }
         if (menu.activeSelf && !first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
         {
@@ -58,6 +69,11 @@ public class StartMenuBehavior : MonoBehaviour
 
     public void PlayGame()
     {
+        if (!offset) {
+            menuController.GetComponent<TimerControl>().timeOffset = (int)Time.timeSinceLevelLoad;
+            offset = true;
+            menuController.GetComponent<TimerControl>().offsetSet = true;
+        }
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
         eventSystem.GetComponent<StandaloneInputModule>().enabled = false;
         menu.SetActive(false);

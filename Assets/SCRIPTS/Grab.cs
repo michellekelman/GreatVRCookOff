@@ -28,9 +28,14 @@ public class Grab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(player.GetComponent<Holding>().isHolding)
         {
+            if (player.GetComponent<Holding>().heldObj.name != "Knife_Butter" && player.GetComponent<Holding>().heldObj.name != "SpatulaSW" && !player.GetComponent<InteractionQueueBehavior>().interactionPending)
+            {
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop");
+            }
             if(Input.GetButtonDown(A))
             {
                 ReturnObject(player.GetComponent<Holding>().heldObj);
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 
@@ -78,14 +83,17 @@ public class Grab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData) 
     {
         reticlein = true;
+        if (!player.GetComponent<Holding>().isHolding)
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Grab");
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
         reticlein = false;
+        player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
     }
 
-    void ReturnObject(GameObject heldObj)
+    public void ReturnObject(GameObject heldObj)
     {
         if(heldObj.name == "Knife_Butter")
         {

@@ -15,11 +15,6 @@ public class ButtonMapping : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        A = "js10";
-        B = "js7";
-        X = "js11"; 
-        Y = "js10"; 
-        menu = "js6"; 
         bMap = new string[] {A, B, X, Y, menu};
     }
 

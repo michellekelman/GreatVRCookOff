@@ -13,22 +13,26 @@ public class SettingsMenuBehavior : MonoBehaviour
     public GameObject reticle;
     public GameObject recipe;
     public GameObject instructions;
-
     public GameObject recipeButton;
     public GameObject instructionsButton;
     public GameObject exitButton;
     public GameObject eventSystem;
     public GameObject playerMenu;
+    public GameObject tempMenu;
+    public GameObject menuController;
     string X;
     string Y;
+    string B;
     string menuInputButton;
     private string[] bMap;
+
     void Start()
     {
         menu.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
+        B = bMap[1];
         menuInputButton = bMap[4];
     }
 
@@ -51,24 +55,30 @@ public class SettingsMenuBehavior : MonoBehaviour
         {
             ResumeGame();
         }
-        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf))
+        if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf) && (menuController.GetComponent<TimerControl>().offsetSet==true))
         {
             ResumeGame();
+        }
+        if (menu.activeSelf && Input.GetButtonDown(B)) {
+            EventSystem.current.SetSelectedGameObject(recipeButton);
         }
     }
 
     public void ActivateMenu()
     {
-            playerMenu.SetActive(false);
-            eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
-            eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
-            character.GetComponent<CharacterMovement>().speed = 0;
-            reticle.SetActive(false);
-            menu.SetActive(true);
-            recipe.SetActive(false);
-            instructions.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(recipeButton);
+        playerMenu.SetActive(false);
+        tempMenu.SetActive(false);
+        eventSystem.SetActive(false);
+        eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
+        eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
+        eventSystem.SetActive(true);
+        character.GetComponent<CharacterMovement>().speed = 0;
+        reticle.SetActive(false);
+        menu.SetActive(true);
+        recipe.SetActive(false);
+        instructions.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(recipeButton);
     }
 
     public void ShowRecipe()
@@ -85,8 +95,10 @@ public class SettingsMenuBehavior : MonoBehaviour
 
     public void ResumeGame()
     {
+        eventSystem.SetActive(false);
         eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
         eventSystem.GetComponent<StandaloneInputModule>().enabled = false;
+        eventSystem.SetActive(true);
         menu.SetActive(false);
         recipe.SetActive(false);
         instructions.SetActive(false);

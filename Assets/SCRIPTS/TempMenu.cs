@@ -7,18 +7,19 @@ public class TempMenu : MonoBehaviour
     public GameObject pointerDial;
     public GameObject player;
     public GameObject tempMenu;
+    public GameObject settingsMenu;
     bool inputProcessed;
     int pointerAngle; 
     int currAngle;
     bool tempOn;
-    private string X;
+    private string B;
     private string[] bMap;
 
     // Start is called before the first frame update
     void Start()
     {
         bMap = player.GetComponent<ButtonMapping>().getMap();
-        X = bMap[2];
+        B = bMap[1];
         inputProcessed = false;
         pointerAngle = 45;
         tempOn = false;
@@ -29,28 +30,39 @@ public class TempMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown(X)) {
-            // Debug.Log("X is pressed!");
-        }
-        //pressing X to interact with stove
-        if(Input.GetButtonDown(X) && 
-            !player.GetComponent<Holding>().isHolding &&
-            player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
-            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove")) 
+        if (!player.GetComponent<Holding>().isHolding && player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
+            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove"))
         {
-            tempOn = !tempOn; 
-            tempMenu.SetActive(tempOn); // toggling the dial menu 
-            player.transform.GetComponent<CharacterMovement>().enabled = !tempOn; // toggling character movement 
-            Debug.Log("Show Stove Dial" + tempOn);
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Interact");
+        }
+        else if (player.GetComponent<ActiveGameObject>().getActiveObject() == null && player.GetComponent<InteractionQueueBehavior>().getCurrentQueue() == "Press B to Interact")
+        {
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
+        }
 
-            if(!tempOn) // if false => closing menu
+        // pressing B to interact with stove
+        if (Input.GetButtonDown(B) && !settingsMenu.activeSelf)
+        {
+            if (!player.GetComponent<Holding>().isHolding &&
+            player.GetComponent<ActiveGameObject>().getActiveObject() != null &&
+            player.GetComponent<ActiveGameObject>().getActiveObject().name.Contains("Stove") && !tempOn)
             {
-                // get temp reading here.
+                tempOn = true; 
+                tempMenu.SetActive(tempOn); // toggling the dial menu 
+                player.transform.GetComponent<CharacterMovement>().enabled = false; // toggling character movement 
+                // Debug.Log("Show Stove Dial" + tempOn); 
+            }
+            else if (tempOn)
+            {
                 if(currAngle==180 || currAngle== -180){
-                    Debug.Log("Oven set to med");
+                    // Debug.Log("Oven set to med");
                     player.GetComponent<RecipeStepsBehavior>().setStep2True();
+                    this.enabled = false;
                 }
-
+                tempOn = false;
+                tempMenu.SetActive(tempOn);
+                player.transform.GetComponent<CharacterMovement>().enabled = true;
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
             }
         }
 
@@ -73,7 +85,7 @@ public class TempMenu : MonoBehaviour
                 inputProcessed = false;
             }
 
-            Debug.Log("Curr Angle is: "+currAngle);
+            //Debug.Log("Curr Angle is: "+currAngle);
         }
     }
 
