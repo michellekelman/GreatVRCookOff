@@ -7,6 +7,7 @@ using System.Linq;
 public class InventoryMenu : MonoBehaviour
 {   
     public GameObject inventMenu;
+    public GameObject playerMenu;
     private Dictionary<string, GameObject> inventory = new Dictionary<string, GameObject>();
     private int inventoryCount;
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class InventoryMenu : MonoBehaviour
     {
         inventoryCount = 0;
         loadInventory();
+        inventMenu = playerMenu.transform.Find("PlayerMenuHolder").Find("IngredientInventory").gameObject;
     }
 
     // Update is called once per frame

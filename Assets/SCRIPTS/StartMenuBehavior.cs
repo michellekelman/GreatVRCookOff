@@ -16,6 +16,7 @@ public class StartMenuBehavior : MonoBehaviour
     public GameObject eventSystem;
     public GameObject playerMenu;
     public GameObject menuController;
+    public GameObject serverController;
     private bool first = false;
     string X;
     string Y;
@@ -26,10 +27,15 @@ public class StartMenuBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        character.GetComponent<CharacterMovement>().speed = 0;
-        reticle.SetActive(false);
-        playerMenu.SetActive(false);
+        // character.GetComponent<CharacterMovement>().speed = 0;
+        // reticle.SetActive(false);
+        // playerMenu.SetActive(false);
         // instructions.SetActive(false);
+        reticle = character.transform.Find("XRCardboardRig").Find("HeightOffset").Find("Main Camera").Find("VRGroup").Find("Reticle").gameObject;
+        playButton = menu.transform.Find("StartMenu").Find("StartButton").gameObject;
+        instructions = character.transform.Find("InstructionsView").gameObject;
+        instructionsButton = menu.transform.Find("StartMenu").Find("InstructionsButton").gameObject;
+        eventSystem = character.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
@@ -43,7 +49,8 @@ public class StartMenuBehavior : MonoBehaviour
         if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
         {
             // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
-            PlayGame();
+            // PlayGame();
+            GoToCreateOrJoinRoom();
         }
         else if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
         {
@@ -52,7 +59,7 @@ public class StartMenuBehavior : MonoBehaviour
         else if (Input.GetButton(Y) && instructions.activeSelf)
         {
             // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
-            PlayGame();
+            ShowStartMenu();
         }
         else if (EventSystem.current.currentSelectedGameObject == null) {
             EventSystem.current.SetSelectedGameObject(playButton);
@@ -81,13 +88,24 @@ public class StartMenuBehavior : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         character.GetComponent<CharacterMovement>().speed = 5;
         reticle.SetActive(true);
-        playerMenu.SetActive(true);
+        // playerMenu.SetActive(true);
+    }
+
+    public void GoToCreateOrJoinRoom()
+    {
+        serverController.GetComponent<ConnectToServer>().joinLobby();
     }
 
     public void ShowInstructions()
     {
         instructions.SetActive(true);
         menu.SetActive(false);
+    }
+
+    public void ShowStartMenu()
+    {
+        instructions.SetActive(false);
+        menu.SetActive(true);
     }
 
 }

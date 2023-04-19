@@ -26,6 +26,11 @@ public class EndMenuBehavior : MonoBehaviour
 
     void Start()
     {
+        exitButton = endMenu.transform.Find("EndMenuHelper").Find("ExitButton").gameObject;
+        timeDisplay = endMenu.transform.Find("EndMenuHelper").Find("Time").gameObject;
+        placeDisplay = endMenu.transform.Find("EndMenuHelper").Find("Place").gameObject;
+        eventSystem = character.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
+        reticle = character.transform.Find("XRCardboardRig").Find("HeightOffset").Find("Main Camera").Find("VRGroup").Find("Reticle").gameObject;
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         menuOpen = false;

@@ -17,11 +17,16 @@ public class RoomControl : MonoBehaviour
     string input;
     string X;
     private string[] bMap;
-    private GameObject curKey;    
+    private GameObject curKey;   
+    public GameObject serverController;
 
     // Start is called before the first frame update
     void Start()
     {
+        display = menu.transform.Find("RoomSelect").Find("Input").Find("InputText").gameObject;
+        keyboard = menu.transform.Find("RoomSelect").Find("Keypad").gameObject;
+        startKey = keyboard.transform.Find("0").gameObject;
+        error = menu.transform.Find("RoomSelect").Find("Error").gameObject;
         bMap = player.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Reset();
@@ -79,16 +84,17 @@ public class RoomControl : MonoBehaviour
 
     void Submit()
     {
-        if (input.Length<6) // or already taken
-        {
-            error.SetActive(true);
-        }
-        else
-        {
-            // close menu
-            Debug.Log(input);
-            Reset();
-            menu.SetActive(false);
-        }
+        // if (input.Length<6) // or already taken
+        // {
+        //     error.SetActive(true);
+        // }
+        // else
+        // {
+        //     // close menu
+        //     Debug.Log(input);
+        //     Reset();
+        //     menu.SetActive(false);
+        // }
+        serverController.GetComponent<JoinMultiplayerGame>().CreateOrJoinRoom();
     }
 }

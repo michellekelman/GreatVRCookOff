@@ -16,6 +16,7 @@ public class RecipeStepsBehavior : MonoBehaviour
     [HideInInspector] public bool step8Complete;
 
     public GameObject playerRecipeInstruction;
+    public GameObject kitchenCanvas;
     void Start()
     {
         step1Complete = false;
@@ -26,6 +27,7 @@ public class RecipeStepsBehavior : MonoBehaviour
         step6Complete = false;
         step7Complete = false;
         step8Complete = false;
+        playerRecipeInstruction = kitchenCanvas.transform.Find("Instruction").gameObject;
     }
 
     // Update is called once per frame

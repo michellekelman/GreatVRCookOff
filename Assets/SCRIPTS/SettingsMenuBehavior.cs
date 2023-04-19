@@ -28,12 +28,19 @@ public class SettingsMenuBehavior : MonoBehaviour
 
     void Start()
     {
+        reticle = character.transform.Find("XRCardboardRig").Find("HeightOffset").Find("Main Camera").Find("VRGroup").Find("Reticle").gameObject;
+        recipeButton = menu.transform.Find("SettingsMenu").Find("RecipeButton").gameObject;
+        instructionsButton = menu.transform.Find("SettingsMenu").Find("InstructionsButton").gameObject;
+        exitButton = menu.transform.Find("SettingsMenu").Find("ExitButton").gameObject;
+        eventSystem = character.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
         menu.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
         B = bMap[1];
         menuInputButton = bMap[4];
+        
+
     }
 
     // Update is called once per frame

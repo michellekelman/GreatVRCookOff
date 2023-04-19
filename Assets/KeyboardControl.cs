@@ -21,6 +21,9 @@ public class KeyboardControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        display = menu.transform.Find("NameMenu").Find("Input").Find("InputText").gameObject;
+        keyboard = menu.transform.Find("NameMenu").Find("Keyboard").gameObject;
+        startKey = keyboard.transform.Find("A").gameObject;
         bMap = player.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Reset();

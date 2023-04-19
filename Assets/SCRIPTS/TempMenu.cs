@@ -24,7 +24,7 @@ public class TempMenu : MonoBehaviour
         pointerAngle = 45;
         tempOn = false;
         currAngle = 0;
-        
+        pointerDial = tempMenu.transform.Find("Pointer").gameObject;
     }
 
     // Update is called once per frame
