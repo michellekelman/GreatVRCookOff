@@ -832,11 +832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043818, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: Y
-      value: js10
+      value: js0
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043818, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: menu
-      value: js6
+      value: js9
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043819, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: m_Enabled
