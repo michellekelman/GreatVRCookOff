@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class ConnectToServer : MonoBehaviourPunCallbacks
+public class GoToCreateOrJoinScene : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     void Start()
@@ -18,13 +18,10 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         
     }
 
-    // public override void OnConnectedToMaster()
-    // {
-    //     PhotonNetwork.JoinLobby();
-    // }
 
-    public void joinLobby()
+    public void joinLobby(string createOrJoin)
     {
+        CreateOrJoinInfo.createOrJoin = createOrJoin;
         PhotonNetwork.JoinLobby();
     }
 

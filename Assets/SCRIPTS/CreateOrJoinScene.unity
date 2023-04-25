@@ -685,6 +685,7 @@ MonoBehaviour:
   startKey: {fileID: 0}
   error: {fileID: 0}
   serverController: {fileID: 345059707}
+  createOrJoin: create
 --- !u!4 &2068961991
 Transform:
   m_ObjectHideFlags: 0

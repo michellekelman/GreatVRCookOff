@@ -10,7 +10,9 @@ public class StartMenuBehavior : MonoBehaviour
     public GameObject menu;
     public GameObject character;
     public GameObject reticle;
-    public GameObject playButton;
+    public GameObject singlePlayerButton;
+    public GameObject createRoomButton;
+    public GameObject joinRoomButton;
     public GameObject instructions;
     public GameObject instructionsButton;
     public GameObject eventSystem;
@@ -32,7 +34,9 @@ public class StartMenuBehavior : MonoBehaviour
         // playerMenu.SetActive(false);
         // instructions.SetActive(false);
         reticle = character.transform.Find("XRCardboardRig").Find("HeightOffset").Find("Main Camera").Find("VRGroup").Find("Reticle").gameObject;
-        playButton = menu.transform.Find("StartMenu").Find("StartButton").gameObject;
+        singlePlayerButton = menu.transform.Find("StartMenu").Find("SinglePlayerButton").gameObject;
+        createRoomButton = menu.transform.Find("StartMenu").Find("CreateRoomButton").gameObject;
+        joinRoomButton = menu.transform.Find("StartMenu").Find("JoinRoomButton").gameObject;
         instructions = character.transform.Find("InstructionsView").gameObject;
         instructionsButton = menu.transform.Find("StartMenu").Find("InstructionsButton").gameObject;
         eventSystem = character.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
@@ -46,11 +50,17 @@ public class StartMenuBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == playButton)
+        if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == singlePlayerButton)
         {
-            // character.GetComponent<PlayerMenu>().timeOffset = (int)Time.timeSinceLevelLoad;
-            // PlayGame();
-            GoToCreateOrJoinRoom();
+            //GoToCreateOrJoinRoom();
+        }
+        else if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == createRoomButton)
+        {
+            GoToCreateRoomScene();
+        }
+        else if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == joinRoomButton)
+        {
+            GoToJoinRoomScene();
         }
         else if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == instructionsButton) 
         {
@@ -62,14 +72,14 @@ public class StartMenuBehavior : MonoBehaviour
             ShowStartMenu();
         }
         else if (EventSystem.current.currentSelectedGameObject == null) {
-            EventSystem.current.SetSelectedGameObject(playButton);
+            EventSystem.current.SetSelectedGameObject(singlePlayerButton);
         }
         if (menu.activeSelf && !first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
         {
             eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
             eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(playButton);
+            EventSystem.current.SetSelectedGameObject(singlePlayerButton);
             first = true;
         }
     }
@@ -91,9 +101,14 @@ public class StartMenuBehavior : MonoBehaviour
         // playerMenu.SetActive(true);
     }
 
-    public void GoToCreateOrJoinRoom()
+    public void GoToCreateRoomScene()
     {
-        serverController.GetComponent<ConnectToServer>().joinLobby();
+        serverController.GetComponent<GoToCreateOrJoinScene>().joinLobby("create");
+    }
+
+    public void GoToJoinRoomScene()
+    {
+        serverController.GetComponent<GoToCreateOrJoinScene>().joinLobby("join");
     }
 
     public void ShowInstructions()

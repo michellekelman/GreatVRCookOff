@@ -23,15 +23,18 @@ public class JoinMultiplayerGame : MonoBehaviourPunCallbacks
         
     }
 
-    // public void CreateRoom()
-    // {
-    //     PhotonNetwork.CreateRoom(createInput.text);
-    // }
+    public void CreateRoom()
+    {
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.IsVisible = true;
+        roomOptions.MaxPlayers = 4;
+        PhotonNetwork.CreateRoom(createInput.text, roomOptions, TypedLobby.Default);
+    }
 
-    // public void JoinRoom()
-    // {
-    //     PhotonNetwork.JoinRoom(joinInput.text);
-    // }
+    public void JoinRoom()
+    {
+        PhotonNetwork.JoinRoom(createInput.text);
+    }
 
     public void CreateOrJoinRoom()
     {
@@ -44,6 +47,5 @@ public class JoinMultiplayerGame : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("KitchenScene");
-        // Debug.Log("adsf");
     }
 }

@@ -6,6 +6,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
+public static class CreateOrJoinInfo
+{
+    public static string createOrJoin { get; set;}
+}
+
 public class RoomControl : MonoBehaviour
 {
     public GameObject menu;
@@ -95,6 +100,13 @@ public class RoomControl : MonoBehaviour
         //     Reset();
         //     menu.SetActive(false);
         // }
-        serverController.GetComponent<JoinMultiplayerGame>().CreateOrJoinRoom();
+        if (CreateOrJoinInfo.createOrJoin == "join")
+        {
+            serverController.GetComponent<JoinMultiplayerGame>().JoinRoom();
+        }
+        else if (CreateOrJoinInfo.createOrJoin == "create")
+        {
+            serverController.GetComponent<JoinMultiplayerGame>().CreateRoom();
+        }
     }
 }
