@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 1827644939467852275}
   - component: {fileID: -4107343031684881708}
   - component: {fileID: 8278382237925429467}
+  - component: {fileID: 2849786767652833780}
   - component: {fileID: 1074693146579599612}
   - component: {fileID: 1697986998731423236}
   - component: {fileID: 8667173834812168821}
@@ -460,11 +461,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: js8
-  B: js10
-  X: js1
-  Y: js0
-  menu: js9
+  A: js10
+  B: js7
+  X: js11
+  Y: js10
+  menu: js6
   OK: 
   bMap:
   - js10
@@ -564,6 +565,18 @@ MonoBehaviour:
   xr: {fileID: 525753328025247426}
   menuController: {fileID: 6186805853792228134}
   playerMenu: {fileID: 2976358380711499901}
+--- !u!114 &2849786767652833780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525753328043043728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778b7e423f1a84958b79c6d0205eee09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1074693146579599612
 MeshRenderer:
   m_ObjectHideFlags: 0
