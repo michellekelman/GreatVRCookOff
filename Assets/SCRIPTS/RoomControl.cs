@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.SceneManagement;
 
 public static class CreateOrJoinInfo
 {
@@ -54,6 +55,10 @@ public class RoomControl : MonoBehaviour
             else if (Input.GetButtonDown(X) && curKey.name.Contains("SUBMIT"))
             {
                 Submit();
+            }
+            else if (Input.GetButtonDown(X) && curKey.name.Contains("Back"))
+            {
+                Back();
             }
             else if (Input.GetButtonDown(X) && input.Length<6)
             {
@@ -107,5 +112,10 @@ public class RoomControl : MonoBehaviour
         {
             serverController.GetComponent<JoinMultiplayerGame>().CreateRoom();
         }
+    }
+
+    void Back()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
