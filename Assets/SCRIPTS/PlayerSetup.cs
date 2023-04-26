@@ -17,4 +17,5 @@ public class PlayerSetup : MonoBehaviour
         menuController.SetActive(true);
         playerMenu.SetActive(true);
     }
+
 }

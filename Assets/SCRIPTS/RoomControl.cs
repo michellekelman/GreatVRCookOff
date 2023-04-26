@@ -66,7 +66,6 @@ public class RoomControl : MonoBehaviour
     {
         input = "";
         EventSystem.current.SetSelectedGameObject(startKey);
-        error.SetActive(false);
         Display();
     }
     
