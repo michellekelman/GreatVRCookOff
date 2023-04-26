@@ -461,11 +461,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: js8
-  B: js10
-  X: js1
-  Y: js0
-  menu: js9
+  A: js10
+  B: js7
+  X: js11
+  Y: js6
+  menu: js10
   OK: 
   bMap:
   - js10

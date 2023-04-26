@@ -84,22 +84,22 @@ public class StartMenuBehavior : MonoBehaviour
         }
     }
 
-    public void PlayGame()
-    {
-        if (!offset) {
-            menuController.GetComponent<TimerControl>().timeOffset = (int)Time.timeSinceLevelLoad;
-            offset = true;
-            menuController.GetComponent<TimerControl>().offsetSet = true;
-        }
-        eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
-        eventSystem.GetComponent<StandaloneInputModule>().enabled = false;
-        menu.SetActive(false);
-        instructions.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        character.GetComponent<CharacterMovement>().speed = 5;
-        reticle.SetActive(true);
-        // playerMenu.SetActive(true);
-    }
+    // public void PlayGame()
+    // {
+    //     if (!offset) {
+    //         menuController.GetComponent<TimerControl>().timeOffset = (int)Time.timeSinceLevelLoad;
+    //         offset = true;
+    //         menuController.GetComponent<TimerControl>().offsetSet = true;
+    //     }
+    //     eventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
+    //     eventSystem.GetComponent<StandaloneInputModule>().enabled = false;
+    //     menu.SetActive(false);
+    //     instructions.SetActive(false);
+    //     EventSystem.current.SetSelectedGameObject(null);
+    //     character.GetComponent<CharacterMovement>().speed = 5;
+    //     reticle.SetActive(true);
+    //     // playerMenu.SetActive(true);
+    // }
 
     public void GoToCreateRoomScene()
     {

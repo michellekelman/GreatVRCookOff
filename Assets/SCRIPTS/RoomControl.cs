@@ -116,6 +116,7 @@ public class RoomControl : MonoBehaviour
 
     void Back()
     {
+        CreateOrJoinInfo.createOrJoin = "";
         SceneManager.LoadScene("StartScene");
     }
 }

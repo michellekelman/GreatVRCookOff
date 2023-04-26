@@ -29,4 +29,5 @@ public class GoToCreateOrJoinScene : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("CreateOrJoinScene");
     }
+
 }

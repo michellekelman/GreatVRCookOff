@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class ExitWaitingArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called before the first frame update
-    [HideInInspector] public bool reticlein;
+    public bool reticlein;
     public GameObject roomManager;
     private string B;
     private string[] bMap;
