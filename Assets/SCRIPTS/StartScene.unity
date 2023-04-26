@@ -1078,11 +1078,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043818, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: Y
-      value: js0
+      value: js10
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043818, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: menu
-      value: js9
+      value: js6
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043819, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: m_Enabled
@@ -1179,10 +1179,6 @@ PrefabInstance:
     - target: {fileID: 6967462151109713900, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: sceneViewId
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8006947637931281683, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
-      propertyPath: sceneViewId
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8186146595090532338, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: sceneViewId
