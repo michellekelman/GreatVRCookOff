@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class ExitWaitingArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+using Photon.Pun;
+public class ExitWaitingArea : MonoBehaviourPunCallbacks, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called before the first frame update
     public bool reticlein;

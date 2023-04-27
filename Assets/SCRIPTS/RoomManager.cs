@@ -34,33 +34,36 @@ public class RoomManager : MonoBehaviourPunCallbacks
     void Start()
     {
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawns[PhotonNetwork.CurrentRoom.PlayerCount - 1], rotations[PhotonNetwork.CurrentRoom.PlayerCount - 1],0, new object[]{parentIDs[PhotonNetwork.CurrentRoom.PlayerCount - 1]});
-        _player.GetComponent<PlayerSetup>().IsLocalPlayer();
+        _player.GetComponent<PlayerSetup>().IsLocalPlayer(PhotonNetwork.CurrentRoom.PlayerCount);
         _player.transform.Find("PlayerMenu").Find("PlayerMenuHolder").Find("Player").Find("PlayerText").gameObject.GetComponent<TMP_Text>().text = $"Player {PhotonNetwork.CurrentRoom.PlayerCount}";
         _player.transform.Find("PlayerMenu").Find("PlayerMenuHolder").Find("Player").gameObject.GetComponent<Image>().color = colors[PhotonNetwork.CurrentRoom.PlayerCount - 1];
+        // players[PhotonNetwork.CurrentRoom.PlayerCount - 1] = _player;
     }
 
     void Update()
     {
-        
     }
 
+    
+
+    [PunRPC]
     public void StartGame()
     {
         if(player1.transform.childCount > 0)
         {
-            player1.transform.Find("Character(Clone)").localPosition = kitchenSpawns[0];
+            player1.transform.Find("Character(Clone)").gameObject.GetComponent<PhotonView>().RPC("teleportToKitchen", RpcTarget.All);
         }
         if(player2.transform.childCount > 0)
         {
-            player2.transform.Find("Character(Clone)").localPosition = kitchenSpawns[1];
+            player2.transform.Find("Character(Clone)").gameObject.GetComponent<PhotonView>().RPC("teleportToKitchen", RpcTarget.All);
         }
         if(player3.transform.childCount > 0)
         {
-            player3.transform.Find("Character(Clone)").localPosition = kitchenSpawns[2];
+            player3.transform.Find("Character(Clone)").gameObject.GetComponent<PhotonView>().RPC("teleportToKitchen", RpcTarget.All);
         }
         if(player4.transform.childCount > 0)
         {
-            player4.transform.Find("Character(Clone)").localPosition = kitchenSpawns[3];
+            player4.transform.Find("Character(Clone)").gameObject.GetComponent<PhotonView>().RPC("teleportToKitchen", RpcTarget.All);
         }
         gameController.GetComponent<TimerControl>().timeOffset = (int)Time.timeSinceLevelLoad;
         gameController.GetComponent<TimerControl>().offsetSet = true;

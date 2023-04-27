@@ -46,7 +46,7 @@ public class JoinMultiplayerGame : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        Debug.Log(roomList);
+        base.OnRoomListUpdate(roomList);
         UpdateCachedRoomList(roomList);
     }
 
@@ -71,7 +71,7 @@ public class JoinMultiplayerGame : MonoBehaviourPunCallbacks
     {
         if (!cachedRoomList.ContainsKey(createInput.text))
         {
-            error.text = "Room unavailable!";
+            error.text = "Room doesn't exist!";
         }
         else 
         {
