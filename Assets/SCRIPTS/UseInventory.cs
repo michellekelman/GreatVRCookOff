@@ -34,7 +34,7 @@ public class UseInventory : MonoBehaviour
         {
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
         }
-        if(Input.GetButtonDown(B) && activeObj != null && activeObj.GetComponent<Outline>().enabled) 
+        if(Input.GetButtonDown(B) && activeObj != null && activeObj.GetComponent<Outline>().enabled && player.GetComponent<InventoryMenu>().inventMenu.activeSelf) 
         { 
             // Debug.Log("Here" + activeObj.name);
             if( activeObj.name.Contains("Bread")) {
@@ -55,7 +55,7 @@ public class UseInventory : MonoBehaviour
             player.GetComponent<InventoryMenu>().loadInventory();
         }
 
-        if(Input.GetButtonDown(B) && activeObj != null) {
+        if(Input.GetButtonDown(B) && activeObj != null && player.GetComponent<InventoryMenu>().inventMenu.activeSelf) {
             if(activeObj.name.Contains("Table") && itemsInInvent==3) {
                 int startIndex = activeObj.name.IndexOf("(");
                 string boardNumber = activeObj.name.Substring(startIndex+1,1);

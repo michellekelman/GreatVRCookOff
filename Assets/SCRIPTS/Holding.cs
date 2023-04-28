@@ -14,7 +14,7 @@ public class Holding : MonoBehaviour
     void Start()
     {
         isHolding = false;
-        heldObj = new GameObject();
+        heldObj = null;
     }
 
     // Update is called once per frame

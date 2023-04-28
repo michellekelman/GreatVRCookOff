@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HeatPan : MonoBehaviour
 {
     public GameObject player;
     public GameObject stovePan;
-    private bool reticlein;
     private string B;
     private string[] bMap;
     public AudioClip clip;
@@ -15,40 +14,51 @@ public class HeatPan : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Start is called before the first frame update
     void Start()
     {
-        stovePan.SetActive(false);
         bMap = player.GetComponent<ButtonMapping>().getMap();
         B = bMap[1];
+        if(player.transform.parent != null)
+        {
+            if(player.transform.parent.gameObject.name == "Player1")
+            {
+                stovePan = GameObject.Find("KitchenItems (1)/Equipment/StovePan");
+            }
+            else if(player.transform.parent.gameObject.name == "Player2")
+            {
+                stovePan = GameObject.Find("KitchenItems (2)/Equipment/StovePan");
+            }
+            else if(player.transform.parent.gameObject.name == "Player3")
+            {
+                stovePan = GameObject.Find("KitchenItems (3)/Equipment/StovePan");
+            }
+            else if(player.transform.parent.gameObject.name == "Player4")
+            {
+                stovePan = GameObject.Find("KitchenItems (4)/Equipment/StovePan");
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(reticlein && player.GetComponent<Holding>().heldObj.name == "Pan")
+        GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
+        if(activeObj != null && activeObj.name.Contains("Stove") && player.GetComponent<Holding>().heldObj != null && player.GetComponent<Holding>().heldObj.name == "Pan")
         {
+            player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
             if(Input.GetButtonDown(B))
             {
                 player.GetComponent<Holding>().heldObj.SetActive(false);
                 player.GetComponent<Holding>().isHolding = false;
-                player.GetComponent<Holding>().heldObj = new GameObject();
+                player.GetComponent<Holding>().heldObj = null;
                 stovePan.SetActive(true);
                 player.GetComponent<RecipeStepsBehavior>().setStep2True();
                 player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
                 AudioSource.PlayClipAtPoint(clip, stovePan.transform.position, 0.5f);
             }
-            //Add temp menu stuff
+        }
+        else
+        {
+            player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
         }        
     }
-
-    public void OnPointerEnter(PointerEventData eventData) 
-    {
-        reticlein = true;
-        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
-    }
-
-    public void OnPointerExit(PointerEventData eventData) 
-    {
-        reticlein = false;
-        player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(false);
-    }    
 }
