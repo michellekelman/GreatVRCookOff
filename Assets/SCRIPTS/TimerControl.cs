@@ -24,7 +24,7 @@ public class TimerControl : MonoBehaviour
     void Start()
     {
         startSecond = 0;
-        timeOffset = (int)Time.timeSinceLevelLoad;
+        timeOffset = 0;
         seconds = (int)Time.timeSinceLevelLoad;
         /* instructionSet = new string[] { 
             "1. Collect ingredients from pantry (Bread, Cheese, Butter) and place on the kitchen table",

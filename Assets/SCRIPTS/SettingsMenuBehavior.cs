@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using Photon.Pun;
 
-public class SettingsMenuBehavior : MonoBehaviour
+public class SettingsMenuBehavior : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     public GameObject menu;
@@ -16,6 +17,8 @@ public class SettingsMenuBehavior : MonoBehaviour
     public GameObject recipeButton;
     public GameObject instructionsButton;
     public GameObject exitButton;
+
+    public GameObject quitButton;
     public GameObject eventSystem;
     public GameObject playerMenu;
     public GameObject tempMenu;
@@ -32,6 +35,7 @@ public class SettingsMenuBehavior : MonoBehaviour
         recipeButton = menu.transform.Find("SettingsMenu").Find("RecipeButton").gameObject;
         instructionsButton = menu.transform.Find("SettingsMenu").Find("InstructionsButton").gameObject;
         exitButton = menu.transform.Find("SettingsMenu").Find("ExitButton").gameObject;
+        quitButton = menu.transform.Find("SettingsMenu").Find("QuitButton").gameObject;
         eventSystem = character.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
         menu.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
@@ -39,8 +43,6 @@ public class SettingsMenuBehavior : MonoBehaviour
         Y = bMap[3];
         B = bMap[1];
         menuInputButton = bMap[4];
-        
-
     }
 
     // Update is called once per frame
@@ -61,6 +63,10 @@ public class SettingsMenuBehavior : MonoBehaviour
         if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == exitButton) 
         {
             ResumeGame();
+        }
+        if (Input.GetButtonDown(X) && EventSystem.current.currentSelectedGameObject == quitButton) 
+        {
+            QuitGame();
         }
         if (Input.GetButtonDown(Y) && (recipe.activeSelf || instructions.activeSelf) && (menuController.GetComponent<TimerControl>().offsetSet==true))
         {
@@ -113,5 +119,12 @@ public class SettingsMenuBehavior : MonoBehaviour
         character.GetComponent<CharacterMovement>().speed = 5;
         reticle.SetActive(true);
         playerMenu.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.LoadLevel(0);
     }
 }
