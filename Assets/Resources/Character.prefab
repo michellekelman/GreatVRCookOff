@@ -613,8 +613,8 @@ MonoBehaviour:
   A: js10
   B: js7
   X: js11
-  Y: js10
-  menu: js6
+  Y: js6
+  menu: js10
   OK: 
   bMap:
   - js10
@@ -714,6 +714,7 @@ MonoBehaviour:
   xr: {fileID: 525753328025247426}
   menuController: {fileID: 6186805853792228134}
   playerMenu: {fileID: 2976358380711499901}
+  playerNumber: 0
 --- !u!114 &2849786767652833780
 MonoBehaviour:
   m_ObjectHideFlags: 0

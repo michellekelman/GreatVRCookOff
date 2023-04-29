@@ -5,6 +5,12 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.SceneManagement;
+
+public static class CreateOrJoinInfo
+{
+    public static string createOrJoin { get; set;}
+}
 
 public class RoomControl : MonoBehaviour
 {
@@ -50,6 +56,10 @@ public class RoomControl : MonoBehaviour
             {
                 Submit();
             }
+            else if (Input.GetButtonDown(X) && curKey.name.Contains("Back"))
+            {
+                Back();
+            }
             else if (Input.GetButtonDown(X) && input.Length<6)
             {
                 Key(curKey.GetComponentInChildren<TMP_Text>().text);
@@ -61,7 +71,6 @@ public class RoomControl : MonoBehaviour
     {
         input = "";
         EventSystem.current.SetSelectedGameObject(startKey);
-        error.SetActive(false);
         Display();
     }
     
@@ -95,6 +104,19 @@ public class RoomControl : MonoBehaviour
         //     Reset();
         //     menu.SetActive(false);
         // }
-        serverController.GetComponent<JoinMultiplayerGame>().CreateOrJoinRoom();
+        if (CreateOrJoinInfo.createOrJoin == "join")
+        {
+            serverController.GetComponent<JoinMultiplayerGame>().JoinRoom();
+        }
+        else if (CreateOrJoinInfo.createOrJoin == "create")
+        {
+            serverController.GetComponent<JoinMultiplayerGame>().CreateRoom();
+        }
+    }
+
+    void Back()
+    {
+        CreateOrJoinInfo.createOrJoin = "";
+        SceneManager.LoadScene("StartScene");
     }
 }
