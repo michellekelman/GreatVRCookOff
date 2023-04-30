@@ -458,7 +458,6 @@ GameObject:
   - component: {fileID: 1074693146579599612}
   - component: {fileID: 1697986998731423236}
   - component: {fileID: 8667173834812168821}
-  - component: {fileID: 5916559995875878827}
   - component: {fileID: -9090749131760299912}
   - component: {fileID: -6211465094698358512}
   - component: {fileID: -5145098853071555766}
@@ -1761,10 +1760,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 525753328043043821}
     m_Modifications:
+    - target: {fileID: 8897465527059388051, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897465527059388051, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897465527059388051, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8897465527602419040, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
       propertyPath: m_Name
       value: TempMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8897465527602419040, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897465527602419045, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 525753328044668907}
     - target: {fileID: 8897465527602419046, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1846,6 +1865,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8897465527602419046, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897465528910193437, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897465528910193437, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897465528910193437, guid: 223874a1855c54b79bc29ca0d602d82e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
