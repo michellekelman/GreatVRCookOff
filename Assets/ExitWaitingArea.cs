@@ -13,7 +13,7 @@ public class ExitWaitingArea : MonoBehaviourPunCallbacks, IPointerEnterHandler, 
     void Start()
     {
         // bMap = player.GetComponent<ButtonMapping>().getMap();
-        B = "js11";
+        B = "js2";
     }
 
     // Update is called once per frame

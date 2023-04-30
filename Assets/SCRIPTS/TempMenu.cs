@@ -24,7 +24,31 @@ public class TempMenu : MonoBehaviour
         pointerAngle = 45;
         tempOn = false;
         currAngle = 0;
-        pointerDial = tempMenu.transform.Find("Pointer").gameObject;
+        // pointerDial = tempMenu.transform.Find("Pointer").gameObject;
+
+         if(player.transform.parent != null)
+        {
+            if(player.transform.parent.gameObject.name == "Player1")
+            {
+                pointerDial = GameObject.Find("Player1/Character(Clone)/TempMenu/Pointer");
+                tempMenu = GameObject.Find("Player1/Character(Clone)/TempMenu");
+            }
+            else if(player.transform.parent.gameObject.name == "Player2")
+            {
+                pointerDial = GameObject.Find("Player2/Character(Clone)/TempMenu/Pointer");
+                tempMenu = GameObject.Find("Player2/Character(Clone)/TempMenu");
+            }
+            else if(player.transform.parent.gameObject.name == "Player3")
+            {
+                pointerDial = GameObject.Find("Player3/Character(Clone)/TempMenu/Pointer");
+                tempMenu = GameObject.Find("Player3/Character(Clone)/TempMenu");
+            }
+            else if(player.transform.parent.gameObject.name == "Player4")
+            {
+                pointerDial = GameObject.Find("Player4/Character(Clone)/TempMenu/Pointer");
+                tempMenu = GameObject.Find("Player4/Character(Clone)/TempMenu");
+            }
+        }
     }
 
     // Update is called once per frame
@@ -55,8 +79,9 @@ public class TempMenu : MonoBehaviour
             else if (tempOn)
             {
                 if(currAngle==180 || currAngle== -180){
-                    // Debug.Log("Oven set to med");
-                    player.GetComponent<RecipeStepsBehavior>().setStep2True();
+                    Debug.Log("Oven set to med");
+                    //TODO: update step of the player
+                    // player.GetComponent<RecipeStepsBehavior>().setStep2True();
                     this.enabled = false;
                 }
                 tempOn = false;
