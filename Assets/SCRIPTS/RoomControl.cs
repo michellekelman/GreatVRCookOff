@@ -20,11 +20,14 @@ public class RoomControl : MonoBehaviour
     public GameObject keyboard;
     public GameObject startKey;
     public GameObject error;
+    public GameObject reticle;
+    public GameObject eventSystem;
     string input;
     string X;
     private string[] bMap;
     private GameObject curKey;   
     public GameObject serverController;
+    private bool first = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,8 @@ public class RoomControl : MonoBehaviour
         keyboard = menu.transform.Find("RoomSelect").Find("Keypad").gameObject;
         startKey = keyboard.transform.Find("0").gameObject;
         error = menu.transform.Find("RoomSelect").Find("Error").gameObject;
+        reticle = player.transform.Find("XRCardboardRig").Find("HeightOffset").Find("Main Camera").Find("VRGroup").Find("Reticle").gameObject;
+        eventSystem = player.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
         bMap = player.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Reset();
@@ -64,6 +69,14 @@ public class RoomControl : MonoBehaviour
             {
                 Key(curKey.GetComponentInChildren<TMP_Text>().text);
             }
+        }
+        if (menu.activeSelf && !first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
+        {
+            eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
+            eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(startKey);
+            first = true;
         }
     }
 

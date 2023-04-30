@@ -27,7 +27,19 @@ public class GoToCreateOrJoinScene : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        SceneManager.LoadScene("CreateOrJoinScene");
+        if (CreateOrJoinInfo.createOrJoin == "single")
+        {
+            PhotonNetwork.CreateRoom(null);
+        }
+        else 
+        {
+            SceneManager.LoadScene("CreateOrJoinScene");
+        }
+    }
+
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel("KitchenScene");
     }
 
 }

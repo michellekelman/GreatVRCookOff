@@ -15,6 +15,7 @@ public class JoinMultiplayerGame : MonoBehaviourPunCallbacks
     private Dictionary<string, RoomInfo> cachedRoomList = new Dictionary<string, RoomInfo>();
     void Start()
     {
+        PhotonNetwork.AutomaticallySyncScene = false;
         
     }
 
@@ -75,7 +76,7 @@ public class JoinMultiplayerGame : MonoBehaviourPunCallbacks
         }
         else 
         {
-            if (cachedRoomList[createInput.text].PlayerCount < 4)
+            if (cachedRoomList[createInput.text].IsOpen && cachedRoomList[createInput.text].PlayerCount < 4)
             {
                 error.text = "";
                 PhotonNetwork.JoinRoom(createInput.text);

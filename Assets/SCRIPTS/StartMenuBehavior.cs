@@ -30,7 +30,6 @@ public class StartMenuBehavior : MonoBehaviour
     void Start()
     {
         // character.GetComponent<CharacterMovement>().speed = 0;
-        // reticle.SetActive(false);
         // playerMenu.SetActive(false);
         // instructions.SetActive(false);
         reticle = character.transform.Find("XRCardboardRig").Find("HeightOffset").Find("Main Camera").Find("VRGroup").Find("Reticle").gameObject;
@@ -40,6 +39,7 @@ public class StartMenuBehavior : MonoBehaviour
         instructions = character.transform.Find("InstructionsView").gameObject;
         instructionsButton = menu.transform.Find("StartMenu").Find("InstructionsButton").gameObject;
         eventSystem = character.transform.Find("XRCardboardRig").Find("EventSystem").gameObject;
+        reticle.SetActive(false);
         bMap = character.GetComponent<ButtonMapping>().getMap();
         X = bMap[2];
         Y = bMap[3];
@@ -52,7 +52,7 @@ public class StartMenuBehavior : MonoBehaviour
     {
         if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == singlePlayerButton)
         {
-            //GoToCreateOrJoinRoom();
+            SinglePlayerMode();
         }
         else if (Input.GetButton(X) && EventSystem.current.currentSelectedGameObject == createRoomButton)
         {
@@ -100,6 +100,11 @@ public class StartMenuBehavior : MonoBehaviour
     //     reticle.SetActive(true);
     //     // playerMenu.SetActive(true);
     // }
+
+    public void SinglePlayerMode()
+    {
+        serverController.GetComponent<GoToCreateOrJoinScene>().joinLobby("single");
+    }
 
     public void GoToCreateRoomScene()
     {

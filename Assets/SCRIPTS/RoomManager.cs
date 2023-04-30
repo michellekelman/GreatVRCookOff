@@ -20,6 +20,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public GameObject tempMenu;
     public GameObject endMenu;
     public GameObject gameController;
+    
+    public int playerCount;
 
     public GameObject player1;
     public GameObject player2;
@@ -37,11 +39,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
         _player.GetComponent<PlayerSetup>().IsLocalPlayer(PhotonNetwork.CurrentRoom.PlayerCount);
         _player.transform.Find("PlayerMenu").Find("PlayerMenuHolder").Find("Player").Find("PlayerText").gameObject.GetComponent<TMP_Text>().text = $"Player {PhotonNetwork.CurrentRoom.PlayerCount}";
         _player.transform.Find("PlayerMenu").Find("PlayerMenuHolder").Find("Player").gameObject.GetComponent<Image>().color = colors[PhotonNetwork.CurrentRoom.PlayerCount - 1];
-        // players[PhotonNetwork.CurrentRoom.PlayerCount - 1] = _player;
+        playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
     }
 
     void Update()
     {
+        // if (!first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
+        // {
+        //     eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
+        //     eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
+        //     first = true;
+        // }
     }
 
     
@@ -49,6 +57,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartGame()
     {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
         if(player1.transform.childCount > 0)
         {
             player1.transform.Find("Character(Clone)").gameObject.GetComponent<PhotonView>().RPC("teleportToKitchen", RpcTarget.All);
