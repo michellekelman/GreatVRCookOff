@@ -619,10 +619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   A: js10
-  B: js5
-  X: js2
-  Y: js3
-  menu: js11
+  B: js7
+  X: js11
+  Y: js10
+  menu: js6
   OK: 
   bMap:
   - js10

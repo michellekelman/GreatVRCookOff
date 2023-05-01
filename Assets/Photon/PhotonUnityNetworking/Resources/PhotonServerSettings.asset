@@ -63,6 +63,10 @@ MonoBehaviour:
   - setStep7TrueRPC
   - setStep8TrueRPC
   - StartTimerRPC
+  - DoorClose
+  - DoorOpen
+  - DoorClosRPC
+  - DoorOpenRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
