@@ -16,6 +16,16 @@ public class InventoryMenu : MonoBehaviour
         inventoryCount = 0;
         loadInventory();
         inventMenu = playerMenu.transform.Find("PlayerMenuHolder").Find("IngredientInventory").gameObject;
+
+        GameObject vm = GameObject.Find("VoiceManager");
+        foreach (Transform child in vm.transform)
+        {
+            Debug.Log(child.gameObject + "\n");
+            // child.gameObject.SetActive(false);
+            // Mesh mesh = child.gameObject.GetComponent<MeshFilter>().mesh;
+            Destroy(child.gameObject.GetComponent<MeshFilter>());
+            Destroy(child.gameObject.GetComponent<CapsuleCollider>());
+        }
     }
 
     // Update is called once per frame

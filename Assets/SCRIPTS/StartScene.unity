@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1134,11 +1134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043818, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: Y
-      value: js11
+      value: js0
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043818, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: menu
-      value: js7
+      value: js9
       objectReference: {fileID: 0}
     - target: {fileID: 525753328043043819, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
       propertyPath: m_Enabled
@@ -1913,6 +1913,7 @@ GameObject:
   - component: {fileID: 2106311329}
   - component: {fileID: 2106311328}
   - component: {fileID: 2106311327}
+  - component: {fileID: 2106311330}
   m_Layer: 0
   m_Name: VoiceManager
   m_TagString: Untagged
@@ -2017,6 +2018,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2106311330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106311326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddec46cf6a4c4addbf21b6be8442124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aec: 1
+  aecHighPass: 0
+  agc: 1
+  agcCompressionGain: 9
+  agcTargetLevel: 3
+  vad: 1
+  highPass: 0
+  noiseSuppression: 1
+  reverseStreamDelayMs: 120
 --- !u!1 &2144641125
 GameObject:
   m_ObjectHideFlags: 0
