@@ -69,8 +69,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             player4.transform.Find("Character(Clone)").gameObject.GetComponent<PhotonView>().RPC("teleportToKitchen", RpcTarget.All);
         }
-        // gameController.GetComponent<TimerControl>().timeOffset = (int)Time.timeSinceLevelLoad;
-        // gameController.GetComponent<TimerControl>().offsetSet = true;
         gameController.GetComponent<TimerControl>().StartTimer();
     }
 
