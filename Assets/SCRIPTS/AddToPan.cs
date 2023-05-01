@@ -216,7 +216,7 @@ public class AddToPan : MonoBehaviour
         {
             stovePan = activeObj;
             player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
-            if(Input.GetButtonDown(B)) //used to be && label.activeSelf) <- used to check for cooking delay, need to fix
+            if(Input.GetButtonDown(B) && label.activeSelf)
             {
                 flipping = 1;
                 label.SetActive(false);
@@ -264,7 +264,7 @@ public class AddToPan : MonoBehaviour
         {
             player.GetComponent<InteractionQueueBehavior>().SetInteractionPending(true);
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press A to Drop\nPress B to Interact");
-            if(Input.GetButtonDown(B) && doneFlipping) //used to be && label.activeSelf <- need to check for cooking delay still
+            if(Input.GetButtonDown(B) && doneFlipping && label.activeSelf)
             {
                 cookedSw.SetActive(false);
                 label.SetActive(false);
