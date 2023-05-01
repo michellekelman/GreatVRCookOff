@@ -4,9 +4,10 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class RecipeStepsBehavior : MonoBehaviourPunCallbacks
+public class UpdateKitchenCanvas : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
+    public GameObject playerRecipeInstruction;
     [HideInInspector] public bool step1Complete;
     [HideInInspector] public int step2Complete;
     [HideInInspector] public int step3Complete;
@@ -14,44 +15,10 @@ public class RecipeStepsBehavior : MonoBehaviourPunCallbacks
     [HideInInspector] public bool step5Complete;
     [HideInInspector] public bool step6Complete;
     [HideInInspector] public bool step7Complete;
-    public bool step8Complete;
-    public GameObject playerRecipeInstruction;
+    [HideInInspector] public bool step8Complete;
     void Start()
     {
-        step1Complete = false;
-        step2Complete = 0;
-        step3Complete = 0;
-        step4Complete = false;
-        step5Complete = false;
-        step6Complete = false;
-        step7Complete = false;
-        step8Complete = false;
-        SetInstruction();
-    }
-
-    void SetInstruction()
-    {
-        if (this.transform.parent.name == "Player1")
-        {
-            playerRecipeInstruction = GameObject.Find("Kitchen1Instruction");
-        }
-        else if (this.transform.parent.name == "Player2")
-        {
-            playerRecipeInstruction = GameObject.Find("Kitchen2Instruction");
-        }
-        else if (this.transform.parent.name == "Player3")
-        {
-            playerRecipeInstruction = GameObject.Find("Kitchen3Instruction");
-        }
-        else if (this.transform.parent.name == "Player4")
-        {
-            playerRecipeInstruction = GameObject.Find("Kitchen4Instruction");
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        
     }
 
     void CheckValidStep()
@@ -115,58 +82,64 @@ public class RecipeStepsBehavior : MonoBehaviourPunCallbacks
         }
     }
 
-    public void setStep1True()
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    [PunRPC]
+    void setStep1TrueRPC()
     {
         step1Complete = true;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep1TrueRPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void setStep2True()
+    [PunRPC]
+    void setStep2TrueRPC()
     {
         step2Complete++;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep2TrueRPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void incrementStep3()
+    [PunRPC]
+    void incrementStep3RPC()
     {
         step3Complete++;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("incrementStep3RPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void setStep4True()
+    [PunRPC]
+    void setStep4TrueRPC()
     {
         step4Complete = true;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep4TrueRPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void setStep5True()
+    [PunRPC]
+    void setStep5TrueRPC()
     {
         step5Complete = true;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep5TrueRPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void setStep6True()
+    [PunRPC]
+    void setStep6TrueRPC()
     {
         step6Complete = true;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep6TrueRPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void setStep7True()
+    [PunRPC]
+    void setStep7TrueRPC()
     {
         step7Complete = true;
-        // CheckValidStep();
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep7TrueRPC", RpcTarget.All);
+        CheckValidStep();
     }
 
-    public void setStep8True()
+    [PunRPC]
+    void setStep8TrueRPC()
     {
         step8Complete = true;
-        playerRecipeInstruction.GetComponent<PhotonView>().RPC("setStep8TrueRPC", RpcTarget.All);
     }
 }

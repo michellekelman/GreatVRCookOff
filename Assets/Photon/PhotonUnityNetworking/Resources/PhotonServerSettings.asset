@@ -46,6 +46,15 @@ MonoBehaviour:
   - CantHearYou
   - ChangeColour
   - HeresWhy
+  - setStep1TrueRPC
+  - incrementStep3
+  - setStep2True
+  - setStep4True
+  - setStep5True
+  - setStep6True
+  - setStep7True
+  - setStep8True
+  - addFinishedPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

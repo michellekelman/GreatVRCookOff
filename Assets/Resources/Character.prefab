@@ -616,11 +616,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: js3
-  B: js2
-  X: js1
-  Y: js0
-  menu: js9
+  A: js10
+  B: js7
+  X: js11
+  Y: js10
+  menu: js6
   OK: 
   bMap:
   - js10
@@ -649,7 +649,6 @@ MonoBehaviour:
   step7Complete: 0
   step8Complete: 0
   playerRecipeInstruction: {fileID: 0}
-  kitchenCanvas: {fileID: 0}
 --- !u!114 &525753328043043812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2416,9 +2415,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2491216236605202452, guid: ff424f5d0485143d1927ac293f29e61c, type: 3}
+      propertyPath: endMenu
+      value: 
+      objectReference: {fileID: 8394079214281434019}
+    - target: {fileID: 2491216236605202452, guid: ff424f5d0485143d1927ac293f29e61c, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 525753328043043728}
+    - target: {fileID: 2491216236605202452, guid: ff424f5d0485143d1927ac293f29e61c, type: 3}
+      propertyPath: playerMenu
+      value: 
+      objectReference: {fileID: 2976358380711499901}
     - target: {fileID: 2491216236605202454, guid: ff424f5d0485143d1927ac293f29e61c, type: 3}
       propertyPath: player
       value: 
@@ -2446,6 +2453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 525753328043043821}
     m_Modifications:
+    - target: {fileID: 1120072308450982944, guid: 306da4d22695347c19b090befff28f42, type: 3}
+      propertyPath: m_text
+      value: 'Time: 0:23'
+      objectReference: {fileID: 0}
     - target: {fileID: 1120072309045496419, guid: 306da4d22695347c19b090befff28f42, type: 3}
       propertyPath: m_Name
       value: EndMenu
@@ -2540,6 +2551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 306da4d22695347c19b090befff28f42, type: 3}
+--- !u!1 &8394079214281434019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1120072309045496419, guid: 306da4d22695347c19b090befff28f42, type: 3}
+  m_PrefabInstance: {fileID: 8932477848717142464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8394079214281434041 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1120072309045496441, guid: 306da4d22695347c19b090befff28f42, type: 3}

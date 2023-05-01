@@ -1082,6 +1082,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870999609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8394079214887764516, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
+  m_PrefabInstance: {fileID: 1126541515}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1126541515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1237,6 +1248,18 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8394079214887764516, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394079214887764516, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 870999609}
+    - target: {fileID: 8394079214887764516, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 870999609}
     m_RemovedComponents:
     - {fileID: -8999451449898831569, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}
     - {fileID: 8278382237925429467, guid: 1368f48864c2447ba812bb78e85e54b6, type: 3}

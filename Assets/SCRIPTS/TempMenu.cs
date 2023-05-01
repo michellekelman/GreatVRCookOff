@@ -81,7 +81,7 @@ public class TempMenu : MonoBehaviour
                 if(currAngle==180 || currAngle== -180){
                     Debug.Log("Oven set to med");
                     //TODO: update step of the player
-                    // player.GetComponent<RecipeStepsBehavior>().setStep2True();
+                    player.GetComponent<RecipeStepsBehavior>().setStep2True();
                     this.enabled = false;
                 }
                 tempOn = false;

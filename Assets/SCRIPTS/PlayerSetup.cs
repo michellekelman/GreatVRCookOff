@@ -13,7 +13,6 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public GameObject playerMenu;
     private Vector3[] kitchenSpawns = new Vector3[]{new Vector3(0,1,0), new Vector3(-2,1,-6), new Vector3(-6,1,-6), new Vector3(-6,1,1)};
     public int playerNumber;
-    private bool first = false;
 
     public void IsLocalPlayer(int num)
     {
@@ -25,11 +24,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     }
 
     void Update() {
-        if (!first)
-        {
-            first = true;
+        if (!xr.GetComponent<XRCardboardController>().vrActive) //THIS MIGHT CAUSE ISSUES ON ANDROID
             xr.GetComponent<XRCardboardController>().EnableVR();
-        }
     }
 
     [PunRPC]

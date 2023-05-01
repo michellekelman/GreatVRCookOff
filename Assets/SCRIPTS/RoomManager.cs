@@ -39,17 +39,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
         _player.GetComponent<PlayerSetup>().IsLocalPlayer(PhotonNetwork.CurrentRoom.PlayerCount);
         _player.transform.Find("PlayerMenu").Find("PlayerMenuHolder").Find("Player").Find("PlayerText").gameObject.GetComponent<TMP_Text>().text = $"Player {PhotonNetwork.CurrentRoom.PlayerCount}";
         _player.transform.Find("PlayerMenu").Find("PlayerMenuHolder").Find("Player").gameObject.GetComponent<Image>().color = colors[PhotonNetwork.CurrentRoom.PlayerCount - 1];
-        playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+        playerCount = PhotonNetwork.CurrentRoom.PlayerCount; //doesnt work as intended
     }
 
     void Update()
     {
-        // if (!first && eventSystem.GetComponent<StandaloneInputModule>().enabled == false)
-        // {
-        //     eventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
-        //     eventSystem.GetComponent<StandaloneInputModule>().enabled = true;
-        //     first = true;
-        // }
+
     }
 
     

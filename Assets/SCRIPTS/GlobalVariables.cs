@@ -6,14 +6,10 @@ using Photon.Pun;
 public class GlobalVariables : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
-    public int playerCount;
+    public int playerFinishedCount;
     void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            // Set the initial score value for the master client
-            playerCount = 0;
-        }
+        playerFinishedCount = 0;
     }
 
     // Update is called once per frame
@@ -22,17 +18,16 @@ public class GlobalVariables : MonoBehaviourPunCallbacks
         
     }
 
-    [PunRPC]
-    public void addPlayer(int players)
+    
+    public void addFinishedPlayer()
     {
-        playerCount = players;
-        photonView.RPC("addPlayerRPC", RpcTarget.Others, players);
+        playerFinishedCount++;
+        photonView.RPC("addFinishedPlayerRPC", RpcTarget.All, playerFinishedCount);
     }
 
-    void addPlayerRPC(int players) {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            playerCount = players;
-        }
+    [PunRPC]
+    void addFinishedPlayerRPC(int players) {
+        playerFinishedCount = players;
     }
+    
 }
