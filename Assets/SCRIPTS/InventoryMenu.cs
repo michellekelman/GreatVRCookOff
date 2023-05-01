@@ -25,6 +25,7 @@ public class InventoryMenu : MonoBehaviour
             // Mesh mesh = child.gameObject.GetComponent<MeshFilter>().mesh;
             Destroy(child.gameObject.GetComponent<MeshFilter>());
             Destroy(child.gameObject.GetComponent<CapsuleCollider>());
+            Destroy(child.gameObject.GetComponent<CharacterController>());
         }
     }
 
