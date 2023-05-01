@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
-public class OpenDoor : MonoBehaviour
+public class OpenDoor : MonoBehaviourPunCallbacks
 {
     public GameObject objectName;
     public GameObject player;
@@ -33,12 +34,14 @@ public class OpenDoor : MonoBehaviour
         if(Input.GetButtonDown(B) && objectName != null && objectName.name == "Fridge-DoorUpper" && open==false) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 60.0f, 0.0f);
             open = true;
-            AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
+            objectName.GetComponent<PhotonView>().RPC("DoorOpenRPC", RpcTarget.All);
+            // AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
         else if(Input.GetButtonDown(B) && objectName != null && objectName.name == "Fridge-DoorUpper" && open==true) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
             open = false;
-            AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
+            objectName.GetComponent<PhotonView>().RPC("DoorClosRPC", RpcTarget.All);
+            // AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
     }
 }
