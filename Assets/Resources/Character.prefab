@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 5838487218486682758}
   - component: {fileID: 8999832057486047120}
   - component: {fileID: 4474264045389400609}
-  - component: {fileID: 5033130281003495131}
+  - component: {fileID: 5982119045184385086}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -618,11 +618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: js3
-  B: js2
-  X: js1
-  Y: js0
-  menu: js9
+  A: js10
+  B: js7
+  X: js11
+  Y: js6
+  menu: js10
   OK: 
   bMap:
   - js10
@@ -913,7 +913,7 @@ MonoBehaviour:
   player: {fileID: 525753328043043728}
   spatula: {fileID: 0}
   cookedSw: {fileID: 0}
---- !u!114 &5033130281003495131
+--- !u!114 &5982119045184385086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 525753328043043728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72e3beb4cc2ef4440aa3c0cb84a96e9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9134f58c37b4745d38e8cac679504734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomManager: {fileID: 0}

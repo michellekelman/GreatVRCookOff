@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; 
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class TimerControl : MonoBehaviour
+public class TimerControl : MonoBehaviourPunCallbacks
 {
     // public GameObject menu; 
     // public GameObject player_num; 
@@ -66,4 +67,20 @@ public class TimerControl : MonoBehaviour
         // currInstruction += 1;
         // instruction.GetComponent<TMP_Text>().text = instructionSet[currInstruction];
     }
+
+    public void StartTimer()
+    {
+        timeOffset = (int)Time.timeSinceLevelLoad;
+        offsetSet = true;
+        this.GetComponent<PhotonView>().RPC("StartTimerRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void StartTimerRPC()
+    {
+        timeOffset = (int)Time.timeSinceLevelLoad;
+        offsetSet = true;
+    }
+
+
 }
