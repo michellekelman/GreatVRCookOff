@@ -14,7 +14,7 @@ public class RecipeStepsBehavior : MonoBehaviourPunCallbacks
     [HideInInspector] public bool step5Complete;
     [HideInInspector] public bool step6Complete;
     [HideInInspector] public bool step7Complete;
-    public bool step8Complete;
+    [HideInInspector] public bool step8Complete;
     public GameObject playerRecipeInstruction;
     void Start()
     {

@@ -432,6 +432,7 @@ MonoBehaviour:
   vrInputModule: {fileID: 525753327317738968}
   standardInputModule: {fileID: 525753327317738969}
   dragRate: 0.2
+  vrActive: 0
 --- !u!1 &525753328043043728
 GameObject:
   m_ObjectHideFlags: 0

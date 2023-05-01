@@ -55,6 +55,13 @@ MonoBehaviour:
   - setStep7True
   - setStep8True
   - addFinishedPlayerRPC
+  - incrementStep3RPC
+  - setStep2TrueRPC
+  - setStep4TrueRPC
+  - setStep5TrueRPC
+  - setStep6TrueRPC
+  - setStep7TrueRPC
+  - setStep8TrueRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
