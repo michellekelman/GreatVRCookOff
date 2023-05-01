@@ -29,7 +29,7 @@ public class SynchronizeDoorOpen : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void DoorClosRPC()
+    void DoorCloseRPC()
     {
         if(open==true) {
             this.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);

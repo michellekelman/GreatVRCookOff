@@ -67,6 +67,7 @@ MonoBehaviour:
   - DoorOpen
   - DoorClosRPC
   - DoorOpenRPC
+  - DoorCloseRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

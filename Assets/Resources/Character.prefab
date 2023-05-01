@@ -860,6 +860,7 @@ MonoBehaviour:
   objectName: {fileID: 0}
   player: {fileID: 525753328043043728}
   clip: {fileID: 8300000, guid: a03dde1424103c44d98b816813a89854, type: 3}
+  upperFridge: {fileID: 0}
 --- !u!114 &5838487218486682758
 MonoBehaviour:
   m_ObjectHideFlags: 0
