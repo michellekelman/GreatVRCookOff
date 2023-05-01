@@ -3,35 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
-public class ExitWaitingArea : MonoBehaviourPunCallbacks, IPointerEnterHandler, IPointerExitHandler
+public class ExitWaitingArea : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
-    public bool reticlein;
     public GameObject roomManager;
+    public GameObject player;
     private string B;
     private string[] bMap;
     void Start()
     {
-        // bMap = player.GetComponent<ButtonMapping>().getMap();
-        B = "js11";
+        bMap = player.GetComponent<ButtonMapping>().getMap();
+        B = bMap[1];
+        roomManager = GameObject.Find("RoomManager");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (reticlein && Input.GetButtonDown(B))
+        GameObject activeObj = player.GetComponent<ActiveGameObject>().getActiveObject();
+        if (activeObj != null && activeObj.name == "StartGameButton" && Input.GetButtonDown(B))
         {
             roomManager.GetComponent<RoomManager>().StartGame();
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData) 
-    {
-        reticlein = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData) 
-    {
-        reticlein = false;
     }
 }

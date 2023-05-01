@@ -24,8 +24,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     }
 
     void Update() {
-        if (!xr.GetComponent<XRCardboardController>().vrActive) //THIS MIGHT CAUSE ISSUES ON ANDROID
-            xr.GetComponent<XRCardboardController>().EnableVR();
+        // if (xr.GetComponent<XRCardboardController>().vrActive) //THIS MIGHT CAUSE ISSUES ON ANDROID
+        //     xr.GetComponent<XRCardboardController>().EnableVR();
     }
 
     [PunRPC]

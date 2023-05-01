@@ -53,7 +53,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
+  MinDistance: 1
   MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
@@ -432,6 +432,7 @@ MonoBehaviour:
   vrInputModule: {fileID: 525753327317738968}
   standardInputModule: {fileID: 525753327317738969}
   dragRate: 0.2
+  vrActive: 0
 --- !u!1 &525753328043043728
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +466,7 @@ GameObject:
   - component: {fileID: 5838487218486682758}
   - component: {fileID: 8999832057486047120}
   - component: {fileID: 4474264045389400609}
+  - component: {fileID: 5033130281003495131}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -616,11 +618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843e746238cbc244a8da0c9f5ef1cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A: js10
-  B: js7
-  X: js11
-  Y: js10
-  menu: js6
+  A: js11
+  B: js10
+  X: js10
+  Y: js11
+  menu: js7
   OK: 
   bMap:
   - js10
@@ -911,6 +913,20 @@ MonoBehaviour:
   player: {fileID: 525753328043043728}
   spatula: {fileID: 0}
   cookedSw: {fileID: 0}
+--- !u!114 &5033130281003495131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525753328043043728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e3beb4cc2ef4440aa3c0cb84a96e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomManager: {fileID: 0}
+  player: {fileID: 525753328043043728}
 --- !u!1 &525753328044668908
 GameObject:
   m_ObjectHideFlags: 0
