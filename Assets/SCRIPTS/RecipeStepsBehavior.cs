@@ -76,17 +76,17 @@ public class RecipeStepsBehavior : MonoBehaviourPunCallbacks
                                     }
                                     else 
                                     {
-                                        playerRecipeInstruction.GetComponent<TMP_Text>().text = "8. Once fully cooked (golden brown with melted cheese), remove sandwich from pan and put on plate";
+                                        playerRecipeInstruction.GetComponent<TMP_Text>().text = "8. Once fully cooked, use the spatula to remove sandwich from pan and put on plate";
                                     }
                                 }
                                 else 
                                 {
-                                    playerRecipeInstruction.GetComponent<TMP_Text>().text = "7. Flip the sandwich";
+                                    playerRecipeInstruction.GetComponent<TMP_Text>().text = "7. Once partially cooked, use the spatula to flip the sandwich";
                                 }
                             }
                             else 
                             {
-                                playerRecipeInstruction.GetComponent<TMP_Text>().text = "6. Put second slice of bread (butter up) on cheese";
+                                playerRecipeInstruction.GetComponent<TMP_Text>().text = "6. Put second slice of bread on cheese";
                             }
                         }
                         else 
@@ -96,22 +96,22 @@ public class RecipeStepsBehavior : MonoBehaviourPunCallbacks
                     }
                     else 
                     {
-                        playerRecipeInstruction.GetComponent<TMP_Text>().text = "4. Put once slide of bread (butter down) in the pan";
+                        playerRecipeInstruction.GetComponent<TMP_Text>().text = "4. Put once slide of bread in pan";
                     }
                 }
                 else 
                 {
-                    playerRecipeInstruction.GetComponent<TMP_Text>().text = "3. Spread butter one on side of each slice of bread";
+                    playerRecipeInstruction.GetComponent<TMP_Text>().text = "3. Pick up knife and spread butter on each slice of bread";
                 }
             }
             else 
             {
-                playerRecipeInstruction.GetComponent<TMP_Text>().text = "2. Heat pan on Medium";
+                playerRecipeInstruction.GetComponent<TMP_Text>().text = "2. Place pan on stove and head on medium";
             }
         }
         else 
         {
-            playerRecipeInstruction.GetComponent<TMP_Text>().text = "1. Collect ingredients from pantry (Bread, Cheese, Butter) and place on the kitchen table";
+            playerRecipeInstruction.GetComponent<TMP_Text>().text = "1. Collect ingredients from pantry (bread, cheese, butter) and place on kitchen table";
         }
     }
 

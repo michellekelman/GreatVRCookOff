@@ -36,10 +36,10 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
 
     private Vector3 GenerateRandomVector()
     {
-        float xRangeMin = -2.5f;
-        float xRangeMax = 2.5f;
-        float zRangeMin = 3.5f;
-        float zRangeMax = 6.5f;
+        float xRangeMin = -2f;
+        float xRangeMax = 2f;
+        float zRangeMin = -6f;
+        float zRangeMax = 9f;
         float fixedYValue = 1f;
         float x = Random.Range(xRangeMin, xRangeMax);
         float z = Random.Range(zRangeMin, zRangeMax);

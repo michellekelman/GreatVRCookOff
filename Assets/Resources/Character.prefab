@@ -619,10 +619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   A: js10
-  B: js7
-  X: js11
-  Y: js10
-  menu: js6
+  B: js5
+  X: js2
+  Y: js3
+  menu: js11
   OK: 
   bMap:
   - js10
@@ -1558,6 +1558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecipeView
       objectReference: {fileID: 0}
+    - target: {fileID: 2889538340061009955, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2889538340061009976, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1645,6 +1649,79 @@ PrefabInstance:
     - target: {fileID: 2889538340061009977, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538340430227095, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538340430227095, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538340430227095, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 280
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538341302043008, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_text
+      value: 'Ingredients:
+
+        Bread (2 Slices)
+
+        Cheese (1 Slice)
+
+        Butter
+
+
+        Instructions:
+
+        1.
+        Collect ingredients from pantry
+
+        2. Place pan on stove and head on
+        medium
+
+        3. Use a knife to spread butter on one side of each slice
+        of bread
+
+        4. Put once slide of bread (butter down) in the pan
+
+        5.
+        Stack cheese on top of bread in pan
+
+        6. Put second slice of bread
+        (butter up) on cheese
+
+        7. Once the cheese starts to melt, use a spatula
+        to flip the sandwich
+
+        8. Once fully cooked (golden brown with melted
+        cheese), use the spatula to remove the sandwich from the pan and put on the
+        plate
+
+
+        Press "Menu" to exit the recipe view and return to the settings
+        menu.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538341302043008, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538341302043008, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538341302043023, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538341302043023, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889538341302043023, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f2d74112371746d4a4e289d41cb186c, type: 3}
@@ -1927,6 +2004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstructionsView
       objectReference: {fileID: 0}
+    - target: {fileID: 5532699553659907360, guid: 4a49329079d464a5c8241e34619ad530, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5532699553659907374, guid: 4a49329079d464a5c8241e34619ad530, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2015,6 +2096,17 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 525753328044668907}
+    - target: {fileID: 5532699554446208410, guid: 4a49329079d464a5c8241e34619ad530, type: 3}
+      propertyPath: m_text
+      value: "Welcome to Great VR Cook Off! In this game, you will compete with other
+        chefs to get the best ingredients and race to complete the given recipe in
+        the fastest amount of time! \n\nJoystick and Button Controls:\n- Use the
+        joystick to move through the environment and menu options.\n- Press \"B\"
+        to select or manipulate objects.\n- Press \"A\" to return objects to their
+        original locations.\n- Press \"Menu\" to open / close the settings menu.\n-
+        Press \"X\" to select with menu options.\n\nPress \"Menu\" to exit the instructions
+        view and return to the settings menu."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a49329079d464a5c8241e34619ad530, type: 3}
 --- !u!224 &9142108749179063046 stripped

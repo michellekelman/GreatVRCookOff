@@ -29,9 +29,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public GameObject player4;
 
     private Color[] colors = new Color[]{new Color(1f, 0.39215686f, 0.39215686f, 1.0f), new Color(1.0f, 1.0f, 0.5f, 1.0f), new Color(0.3921569f, 0.5882353f, 1f, 1f), new Color(0.5882353f, 1f, 0.5882353f, 1f)};
-    private Vector3[] spawns = new Vector3[]{new Vector3(2,1,21), new Vector3(2,1,15), new Vector3(-1,1,15), new Vector3(-1,1,21)};
+    private Vector3[] spawns = new Vector3[]{new Vector3(1,1,20), new Vector3(-1,1,20), new Vector3(3,1,20), new Vector3(-3,1,20)};
     private Vector3[] kitchenSpawns = new Vector3[]{new Vector3(-2,1,1), new Vector3(-2,1,-6), new Vector3(-6,1,-6), new Vector3(-6,1,1)};
-    private Quaternion[] rotations = new Quaternion[]{new Quaternion(0,180,0,1), new Quaternion(0,45,0,1), new Quaternion(0,-45,0,1), new Quaternion(0,-45,0,1)};
+    private Quaternion[] rotations = new Quaternion[]{new Quaternion(0,180,0,1), new Quaternion(0,180,0,1), new Quaternion(0,180,0,1), new Quaternion(0,180,0,1)};
     private int[] parentIDs = new int[]{11,12,13,14};
     void Start()
     {

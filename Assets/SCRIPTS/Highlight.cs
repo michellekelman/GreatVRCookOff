@@ -23,7 +23,7 @@ public class Highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         var outline = objectName.GetComponent<Outline>();
         outline.enabled = true;
-        outline.OutlineWidth = 10f;
+        outline.OutlineWidth = 15f;
         GameObject.Find("Character(Clone)").GetComponent<ActiveGameObject>().setActiveObject(objectName);
     }
 
