@@ -43,15 +43,15 @@ The buttons and joystick of the Bluetooth Controller are used to perform system 
 
 ## Multiplayer: 
 To play Great VR Cook Off with multiplayer:
-All players must launch the .apk.
-Player 1 must select “CREATE MULTIPLAYER GAME” and create a valid 6 digit room code. This code can then be shared with the other players.
-Players 2-4 must select “JOIN MULTIPLAYER GAME” and enter the 6 digit room code previously created.
-Once all players are in the waiting area and have read the instructions, one of the players must select the “START GAME” button to begin the game.
+- All players must launch the .apk.
+- Player 1 must select “CREATE MULTIPLAYER GAME” and create a valid 6 digit room code. This code can then be shared with the other players.
+- Players 2-4 must select “JOIN MULTIPLAYER GAME” and enter the 6 digit room code previously created.
+- Once all players are in the waiting area and have read the instructions, one of the players must select the “START GAME” button to begin the game.
 
 To play Great VR Cook Off in single player mode:
-The player must launch the .apk.
-They must then select “SINGLE PLAYER”.
-Once they have read the instructions in the waiting area, the player must select the “START GAME” button to begin the game.
+- The player must launch the .apk.
+- They must then select “SINGLE PLAYER”.
+- Once they have read the instructions in the waiting area, the player must select the “START GAME” button to begin the game.
 
 ## Preliminary Prototype Demo Link:
 https://www.youtube.com/watch?v=8IgeLQmDzME 
