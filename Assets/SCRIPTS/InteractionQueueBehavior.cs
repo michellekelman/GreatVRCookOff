@@ -7,9 +7,11 @@ public class InteractionQueueBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject queue;
+    public GameObject playerMenu;
     public bool interactionPending;
     void Start()
     {
+        queue = playerMenu.transform.Find("PlayerMenuHolder").Find("InteractionQueue").gameObject;
         queue.GetComponent<TMP_Text>().text = "";
         interactionPending = false;
     }

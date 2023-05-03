@@ -2,54 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
-public class OpenDoor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class OpenDoor : MonoBehaviourPunCallbacks
 {
     public GameObject objectName;
     public GameObject player;
-    bool hover;
     bool open;
-    string keyX;
+    string B;
     private string[] bMap;
     public AudioClip clip;
+    public GameObject upperFridge;
 
     // Start is called before the first frame update
     void Start()
     {
         bMap = player.GetComponent<ButtonMapping>().getMap();
-        hover = false;
         open = false;
+        upperFridge = GameObject.Find("Fridge-DoorUpper");
 
     // <- Key Mappings -> 
-        keyX=bMap[2];
+        B = bMap[1];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hover)
+        GameObject objectName = player.GetComponent<ActiveGameObject>().getActiveObject();
+        if (objectName != null && objectName.name == "Fridge-DoorUpper")
         {
-            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+            player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Interact");
         }
-        if(Input.GetButtonDown(keyX) && hover==true && open==false) {
+        if(Input.GetButtonDown(B) && objectName != null && objectName.name == "Fridge-DoorUpper" && open==false) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 60.0f, 0.0f);
             open = true;
-            AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
+            upperFridge.GetComponent<PhotonView>().RPC("DoorOpenRPC", RpcTarget.All);
+            // AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
-        else if(Input.GetButtonDown(keyX) && hover==true && open==true) {
+        else if(Input.GetButtonDown(B) && objectName != null && objectName.name == "Fridge-DoorUpper" && open==true) {
             objectName.transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
             open = false;
-            AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
+            upperFridge.GetComponent<PhotonView>().RPC("DoorCloseRPC", RpcTarget.All);
+            // AudioSource.PlayClipAtPoint(clip, objectName.transform.position, 0.5f);
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData) 
-    {
-        hover = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData) 
-    {
-        hover = false;
     }
 }

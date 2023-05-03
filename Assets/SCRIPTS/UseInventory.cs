@@ -5,7 +5,7 @@ using UnityEngine;
 public class UseInventory : MonoBehaviour
 {
     public GameObject player;
-    string X;
+    string B;
     string[] bMap;
     public AudioClip clip;
     
@@ -13,7 +13,7 @@ public class UseInventory : MonoBehaviour
     void Start()
     {
         bMap = player.GetComponent<ButtonMapping>().getMap();
-        X = bMap[2];
+        B = bMap[1];
     }
 
     // Update is called once per frame
@@ -24,17 +24,17 @@ public class UseInventory : MonoBehaviour
         if (activeObj != null)
         {
             if (activeObj.name.Contains("Bread") || activeObj.name.Contains("Cheese") || activeObj.name.Contains("Butter")) {
-                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Store");
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Store");
             }
             else if (activeObj.name.Contains("Table") && itemsInInvent==3) {
-                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press X to Interact");
+                player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("Press B to Interact");
             }
         }
         if (activeObj == null)
         {
             player.GetComponent<InteractionQueueBehavior>().SetQueueMessage("");
         }
-        if(Input.GetButtonDown(X) && activeObj != null && activeObj.GetComponent<Outline>().enabled) 
+        if(Input.GetButtonDown(B) && activeObj != null && activeObj.GetComponent<Outline>().enabled && player.GetComponent<InventoryMenu>().inventMenu.activeSelf) 
         { 
             // Debug.Log("Here" + activeObj.name);
             if( activeObj.name.Contains("Bread")) {
@@ -55,7 +55,7 @@ public class UseInventory : MonoBehaviour
             player.GetComponent<InventoryMenu>().loadInventory();
         }
 
-        if(Input.GetButtonDown(X) && activeObj != null) {
+        if(Input.GetButtonDown(B) && activeObj != null && player.GetComponent<InventoryMenu>().inventMenu.activeSelf) {
             if(activeObj.name.Contains("Table") && itemsInInvent==3) {
                 int startIndex = activeObj.name.IndexOf("(");
                 string boardNumber = activeObj.name.Substring(startIndex+1,1);

@@ -31,7 +31,7 @@ public class XRCardboardController : MonoBehaviour
 
 #if UNITY_EDITOR
     Vector3 lastMousePos;
-    bool vrActive;
+    public bool vrActive;
 #endif
 
     void Awake()

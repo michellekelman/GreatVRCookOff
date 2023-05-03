@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/MiLabCardboardExtension/Scenes/Map Bluetooth Key.unity
     guid: 1eb807ac90408844da5fd17e087fea1e
   - enabled: 1
+    path: Assets/SCRIPTS/StartScene.unity
+    guid: 7585739f7f7ab4184a18e6077d5e85c3
+  - enabled: 1
+    path: Assets/SCRIPTS/CreateOrJoinScene.unity
+    guid: ec0a3dd66c245483dac9a293acd1a4f0
+  - enabled: 1
     path: Assets/SCRIPTS/KitchenScene.unity
     guid: 72d09144e15e1c3408aed2f5ec30e0a1
   m_configObjects:
